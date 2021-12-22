@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
 using QuanLyCoffeeAndTea.FormAdminFunction;
+using QuanLyCoffeeAndTea.FormUserFunction;
 
 namespace QuanLyCoffeeAndTea
 {
@@ -16,7 +17,7 @@ namespace QuanLyCoffeeAndTea
     {
         private IconButton currentBtn;
         private Panel leftBorderBtn;
-        private Form activeForm = null;
+        private Form activeForm;
 
         public FormMainMenu()
         {
@@ -24,6 +25,17 @@ namespace QuanLyCoffeeAndTea
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7,60);
             PanelMenu.Controls.Add(leftBorderBtn);
+            // can giua man hinh
+            this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
+                          (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2);
+            if(FormLogin.info.Quyen != true)
+            {
+                PanelAdmin.Visible = false;
+            }
+            else
+            {
+                PanelUser.Visible = false;
+            }
         }
 
         private struct RGBColor
@@ -93,11 +105,7 @@ namespace QuanLyCoffeeAndTea
         private void btnThucDon_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColor.color3);
-            //
-            //Phan quyen
-            //Tam thoi de FormAdmin
-            openChildForm(new FormThucUongAdmin());
-            //
+            openChildForm(new FormThucDonAdmin());
         }
 
         private void btnNhanVien_Click(object sender, EventArgs e)
@@ -121,11 +129,7 @@ namespace QuanLyCoffeeAndTea
         private void btnSanPham_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColor.color5);
-            //
-            //Phan quyen
-            //Tam thoi de FormAdmin
             openChildForm(new FormSanPhamAdmin());
-            //
         }
 
         private void btnDoanhThu_Click(object sender, EventArgs e)
@@ -160,7 +164,23 @@ namespace QuanLyCoffeeAndTea
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
+            if(MessageBox.Show("Bạn muốn đăng xuất khỏi chương trình", "Thông báo", MessageBoxButtons.YesNo) != DialogResult.No)
+            {
+                FormLogin.instance.Visible = true;
+                this.Dispose();
+            }
+        }
 
+        private void btnSanPhamUser_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColor.color5);
+            openChildForm(new FormSanPhamUser());
+        }
+
+        private void btnThucDonUser_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColor.color3);
+            openChildForm(new FormThucDonUser());
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyCoffeeAndTea.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,16 +13,27 @@ namespace QuanLyCoffeeAndTea
 {
     public partial class FormLogin : Form
     {
+        public static Form instance;
+        public static ACCOUNT info;
+        CoffeeAndTeaContextDB contextDB = new CoffeeAndTeaContextDB();
         public FormLogin()
         {
             InitializeComponent();
+            instance = this;
+            // can giua man hinh
+            this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
+                          (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2);
         }
 
         private Boolean checkAccount()
         {
             try
             {
-                
+                ACCOUNT account = contextDB.ACCOUNTs.Where(u => u.UserID == gtxtUserName.Text &&
+                u.Password == gtxtPassword.Text).FirstOrDefault();
+                if (account == null)
+                    return false;
+                info = account;
             }
             catch (Exception e)
             {

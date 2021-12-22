@@ -15,10 +15,14 @@ G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanL
 G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\obj\Debug\QuanLyCoffeeAndTea.FormThietBi.resources
 G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\bin\Debug\FontAwesome.Sharp.dll
 G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\obj\Debug\QuanLyCoffeeAndTea.FormAdminFunction.FormDanhMuc.resources
-G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\obj\Debug\QuanLyCoffeeAndTea.FormThucUongAdmin.resources
-G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\obj\Debug\QuanLyCoffeeAndTea.FormThucUongUser.resources
 G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\obj\Debug\QuanLyCoffeeAndTea.FormAdminFunction.FormDoanhThu.resources
 G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\obj\Debug\QuanLyCoffeeAndTea.FormAdminFunction.FormSanPhamAdmin.resources
 G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\obj\Debug\QuanLyCoffeeAndTea.FormAdminFunction.FormTaiKhoan.resources
 G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\obj\Debug\QuanLyCoffeeAndTea.FormUserFunction.FormSanPhamUser.resources
 G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\obj\Debug\QuanLyCoffeeAndTea.FormUserFunction.FormHoaDon.resources
+G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\bin\Debug\EntityFramework.dll
+G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\bin\Debug\EntityFramework.SqlServer.dll
+G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\bin\Debug\EntityFramework.xml
+G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\bin\Debug\EntityFramework.SqlServer.xml
+G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\obj\Debug\QuanLyCoffeeAndTea.FormThucDonAdmin.resources
+G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\obj\Debug\QuanLyCoffeeAndTea.FormThucDonUser.resources

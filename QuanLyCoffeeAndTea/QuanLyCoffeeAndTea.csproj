@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="FontAwesome.Sharp, Version=5.15.4.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.5.15.4\lib\net45\FontAwesome.Sharp.dll</HintPath>
     </Reference>
@@ -42,7 +48,10 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -104,11 +113,11 @@
     <Compile Include="FormAdminFunction\FormThietBi.Designer.cs">
       <DependentUpon>FormThietBi.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAdminFunction\FormThucUongAdmin.cs">
+    <Compile Include="FormAdminFunction\FormThucDonAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAdminFunction\FormThucUongAdmin.Designer.cs">
-      <DependentUpon>FormThucUongAdmin.cs</DependentUpon>
+    <Compile Include="FormAdminFunction\FormThucDonAdmin.Designer.cs">
+      <DependentUpon>FormThucDonAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUserFunction\FormHoaDon.cs">
       <SubType>Form</SubType>
@@ -122,12 +131,20 @@
     <Compile Include="FormUserFunction\FormSanPhamUser.Designer.cs">
       <DependentUpon>FormSanPhamUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormUserFunction\FormThucUongUser.cs">
+    <Compile Include="FormUserFunction\FormThucDonUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormUserFunction\FormThucUongUser.Designer.cs">
-      <DependentUpon>FormThucUongUser.cs</DependentUpon>
+    <Compile Include="FormUserFunction\FormThucDonUser.Designer.cs">
+      <DependentUpon>FormThucDonUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\ACCOUNT.cs" />
+    <Compile Include="Models\CoffeeAndTeaContextDB.cs" />
+    <Compile Include="Models\DANHMUC.cs" />
+    <Compile Include="Models\HOADON.cs" />
+    <Compile Include="Models\NHANVIEN.cs" />
+    <Compile Include="Models\SANPHAM.cs" />
+    <Compile Include="Models\THIETBI.cs" />
+    <Compile Include="Models\THUCDON.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAdminFunction\FormDanhMuc.resx">
@@ -142,8 +159,8 @@
     <EmbeddedResource Include="FormAdminFunction\FormTaiKhoan.resx">
       <DependentUpon>FormTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAdminFunction\FormThucUongAdmin.resx">
-      <DependentUpon>FormThucUongAdmin.cs</DependentUpon>
+    <EmbeddedResource Include="FormAdminFunction\FormThucDonAdmin.resx">
+      <DependentUpon>FormThucDonAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
@@ -163,8 +180,8 @@
     <EmbeddedResource Include="FormUserFunction\FormSanPhamUser.resx">
       <DependentUpon>FormSanPhamUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormUserFunction\FormThucUongUser.resx">
-      <DependentUpon>FormThucUongUser.cs</DependentUpon>
+    <EmbeddedResource Include="FormUserFunction\FormThucDonUser.resx">
+      <DependentUpon>FormThucDonUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
