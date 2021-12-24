@@ -42,6 +42,11 @@ namespace QuanLyCoffeeAndTea.Models
                 .WithRequired(e => e.DANHMUC)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<HOADON>()
+                .Property(e => e.KichThuoc)
+                .IsFixedLength()
+                .IsUnicode(false);
+
             modelBuilder.Entity<NHANVIEN>()
                 .HasMany(e => e.ACCOUNTs)
                 .WithRequired(e => e.NHANVIEN)

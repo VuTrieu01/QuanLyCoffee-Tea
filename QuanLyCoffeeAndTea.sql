@@ -7,7 +7,7 @@ go
 
 --Tao bang NHANVIEN
 Create table NHANVIEN(
-NhanVienID int not null,
+NhanVienID int IDENTITY(1,1),
 TenNV nvarchar(50),
 NgaySinh Datetime,
 GioiTinh bit,
@@ -28,15 +28,16 @@ go
 
 --Tao bang DANHMUC
 Create table DANHMUC(
-DanhMucID int not null,
+DanhMucID int IDENTITY(1,1),
 TenDM nvarchar(50),
 Primary Key(DanhMucID))
 go
 
 --Tao bang THUCDON
 Create table THUCDON(
-ThucDonID int not null,
+ThucDonID int IDENTITY(1,1),
 TenThucDon nvarchar(50),
+HinhAnh image,
 Gia float,
 DanhMucID int not null,
 Primary Key(ThucDonID),
@@ -45,8 +46,9 @@ go
 
 --Tao bang SANPHAM
 Create table SANPHAM(
-SanPhamID int not null,
+SanPhamID int IDENTITY(1,1),
 TenSanPham nvarchar(50),
+HinhAnh image,
 Gia float,
 DanhMucID int not null,
 Primary Key(SanPhamID),
@@ -55,20 +57,22 @@ go
 
 --Tao bang THIETBI
 Create table THIETBI(
-ThietBiID int not null,
+ThietBiID int IDENTITY(1,1),
 TrangThai bit,
 Primary Key(ThietBiID))
 go
 
 --Tao bang HOADON
 Create table HOADON(
-HoaDonID int not null,
+HoaDonID int IDENTITY(1,1),
 ThucDonID int,
 SanPhamID int,
 ThietBiID int,
 NhanVienID int not null,
 NgayHD Datetime,
+KichThuoc char(30),
 SoLuong int,
+GhiChu nvarchar(100),
 ThanhTien float,
 Primary Key(HoaDonID),
 foreign key (ThucDonID) references THUCDON,

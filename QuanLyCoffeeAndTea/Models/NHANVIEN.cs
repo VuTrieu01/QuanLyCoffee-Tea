@@ -16,7 +16,6 @@ namespace QuanLyCoffeeAndTea.Models
             HOADONs = new HashSet<HOADON>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int NhanVienID { get; set; }
 
         [StringLength(50)]

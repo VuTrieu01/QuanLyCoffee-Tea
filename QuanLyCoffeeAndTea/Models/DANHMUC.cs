@@ -16,7 +16,6 @@ namespace QuanLyCoffeeAndTea.Models
             THUCDONs = new HashSet<THUCDON>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int DanhMucID { get; set; }
 
         [StringLength(50)]

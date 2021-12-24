@@ -35,7 +35,7 @@ namespace QuanLyCoffeeAndTea
                     return false;
                 info = account;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }

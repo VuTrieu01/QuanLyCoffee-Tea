@@ -9,7 +9,6 @@ namespace QuanLyCoffeeAndTea.Models
     [Table("HOADON")]
     public partial class HOADON
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int HoaDonID { get; set; }
 
         public int? ThucDonID { get; set; }
@@ -22,7 +21,13 @@ namespace QuanLyCoffeeAndTea.Models
 
         public DateTime? NgayHD { get; set; }
 
+        [StringLength(30)]
+        public string KichThuoc { get; set; }
+
         public int? SoLuong { get; set; }
+
+        [StringLength(100)]
+        public string GhiChu { get; set; }
 
         public double? ThanhTien { get; set; }
 

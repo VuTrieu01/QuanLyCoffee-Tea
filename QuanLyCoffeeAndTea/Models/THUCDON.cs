@@ -15,11 +15,13 @@ namespace QuanLyCoffeeAndTea.Models
             HOADONs = new HashSet<HOADON>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ThucDonID { get; set; }
 
         [StringLength(50)]
         public string TenThucDon { get; set; }
+
+        [Column(TypeName = "image")]
+        public byte[] HinhAnh { get; set; }
 
         public double? Gia { get; set; }
 

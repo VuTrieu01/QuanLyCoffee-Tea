@@ -59,8 +59,8 @@ namespace QuanLyCoffeeAndTea
             this.guna2DragControl3 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2DragControl4 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.PanelChildForm = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.PanelTitleChildForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).BeginInit();
             this.PanelMenu.SuspendLayout();
@@ -483,15 +483,12 @@ namespace QuanLyCoffeeAndTea
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelChildForm.BackColor = System.Drawing.Color.White;
             this.PanelChildForm.Controls.Add(this.guna2PictureBox1);
+            this.PanelChildForm.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.PanelChildForm.Location = new System.Drawing.Point(246, 103);
             this.PanelChildForm.Name = "PanelChildForm";
             this.PanelChildForm.ShadowDecoration.Parent = this.PanelChildForm;
             this.PanelChildForm.Size = new System.Drawing.Size(1041, 627);
             this.PanelChildForm.TabIndex = 0;
-            // 
-            // guna2Elipse2
-            // 
-            this.guna2Elipse2.TargetControl = this.PanelChildForm;
             // 
             // guna2PictureBox1
             // 
@@ -504,6 +501,10 @@ namespace QuanLyCoffeeAndTea
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox1.TabIndex = 6;
             this.guna2PictureBox1.TabStop = false;
+            // 
+            // guna2Elipse2
+            // 
+            this.guna2Elipse2.TargetControl = this.PanelChildForm;
             // 
             // FormMainMenu
             // 
