@@ -26,3 +26,9 @@ G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanL
 G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\bin\Debug\EntityFramework.SqlServer.xml
 G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\obj\Debug\QuanLyCoffeeAndTea.FormThucDonAdmin.resources
 G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\obj\Debug\QuanLyCoffeeAndTea.FormThucDonUser.resources
+G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\bin\Debug\Z.EntityFramework.Extensions.dll
+G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\bin\Debug\Z.EntityFramework.Plus.EF6.dll
+G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\bin\Debug\Z.Expressions.Eval.dll
+G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\bin\Debug\Z.EntityFramework.Extensions.xml
+G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\bin\Debug\Z.EntityFramework.Plus.EF6.xml
+G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\bin\Debug\Z.Expressions.Eval.xml

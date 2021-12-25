@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Z.EntityFramework.Plus;
 
 namespace QuanLyCoffeeAndTea
 {
@@ -17,16 +18,66 @@ namespace QuanLyCoffeeAndTea
     {
         CoffeeAndTeaContextDB contextDB = new CoffeeAndTeaContextDB();
         THUCDON thucDon = new THUCDON();
+        private string currKey = "";
         public FormThucDonAdmin()
         {
             InitializeComponent();
         }
-        public void loadData()
+        public void loadData(int iDDM = -1)
         {
-            var query = from thucDon in contextDB.THUCDONs
-                        join danhMuc in contextDB.DANHMUCs on thucDon.DanhMucID equals danhMuc.DanhMucID
-                        select new {thucDonID = thucDon.ThucDonID, tenThucDon = thucDon.TenThucDon, gia = thucDon.Gia, danhmuc = danhMuc.TenDM, anh = thucDon.HinhAnh};
-            dgvThucDon.DataSource = query.ToList();
+            var query = !currKey.Equals("")
+                ? contextDB.THUCDONs.Where(x => x.TenThucDon.Contains(currKey))
+                : iDDM == -1 ?
+                contextDB.THUCDONs
+                : contextDB.THUCDONs.Where(x => x.DanhMucID == iDDM);
+
+            dgvThucDon.DataSource = query.OrderByDescending(x => x.ThucDonID)
+                .Select(x => new
+                {
+                    x.ThucDonID,
+                    x.TenThucDon,
+                    x.DANHMUC.TenDM,
+                    x.Gia,
+                    x.HinhAnh
+                }).ToList();
+        }
+
+        private void FormThucDonAdmin_Load(object sender, EventArgs e)
+        {
+            dgvThucDon.AutoGenerateColumns = false;
+            //Gán danh mục vào comboBox
+            List<DANHMUC> listDanhMuc = contextDB.DANHMUCs.ToList();
+            cmbDanhMuc.DataSource = listDanhMuc;
+            cmbDanhMuc.ValueMember = "DanhMucID";
+            cmbDanhMuc.DisplayMember = "TenDM";
+            DataTable table = new DataTable();
+            table.Columns.Add("DanhMucID", typeof(int));
+            table.Columns.Add("TenDM", typeof(string));
+
+            listDanhMuc.ForEach(x =>
+            {
+                var rowDM = table.NewRow();
+                rowDM["DanhMucID"] = x.DanhMucID;
+                rowDM["TenDM"] = x.TenDM;
+                table.Rows.Add(rowDM);
+            });
+
+            DataRow row = table.NewRow();
+            row["DanhMucID"] = -1;
+            row["TenDM"] = "--Chọn món";
+
+            table.Rows.InsertAt(row, 0);
+
+            /*cmbDanhMuc.ValueMember = "DanhMucID";
+            cmbDanhMuc.DisplayMember = "TenDM";*/
+            cmbDanhMuc.DataSource = table;
+
+            //Cho ảnh vừa datagridView
+            DataGridViewImageColumn pic = new DataGridViewImageColumn();
+            pic = (DataGridViewImageColumn)dgvThucDon.Columns[4];
+            pic.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            loadData();
+            resetInput();
         }
 
         private void saveData()
@@ -41,50 +92,27 @@ namespace QuanLyCoffeeAndTea
 
         private void updateData()
         {
-            thucDon.TenThucDon = txtTenThucDon.Text;
-            thucDon.Gia = Convert.ToDouble(txtGia.Text);
-            thucDon.DanhMucID = Convert.ToInt32(cmbDanhMuc.SelectedValue);
-            thucDon.HinhAnh = ImageToByteArray(PictureBoxThucDon);
-            contextDB.SaveChanges();
+            int a = Convert.ToInt32(dgvThucDon.SelectedRows[0].Cells[0].Value.ToString());
+            contextDB.THUCDONs
+                .Where(item => item.ThucDonID == a)
+                .Update(i => new THUCDON { 
+                    TenThucDon = txtTenThucDon.Text,
+                    Gia = Convert.ToDouble(txtGia.Text),
+                    DanhMucID = Convert.ToInt32(cmbDanhMuc.SelectedValue),
+                    HinhAnh = ImageToByteArray(PictureBoxThucDon)
+                });
         }
 
         private void resetInput()
         {
             txtTenThucDon.Text = "";
             txtGia.Text = "";
-            cmbDanhMuc.Refresh();
+            cmbDanhMuc.SelectedValue = -1;
+            txtTimKiem.Text = "";
+            loadData();
             PictureBoxThucDon.Image = null;
-            btnThucDonUser.Enabled = true;
             btnCapNhat.Enabled = false;
             btnXoa.Enabled = false;
-        }
-
-        private void FormThucDonAdmin_Load(object sender, EventArgs e)
-        {
-            //Gán danh mục vào comboBox
-            List<DANHMUC> listDanhMuc = contextDB.DANHMUCs.ToList();
-            cmbDanhMuc.DataSource = listDanhMuc;
-            cmbDanhMuc.ValueMember = "DanhMucID";
-            cmbDanhMuc.DisplayMember = "TenDM";
-
-            //Cho ảnh vừa datagridView
-            DataGridViewImageColumn pic = new DataGridViewImageColumn();
-            pic = (DataGridViewImageColumn)dgvThucDon.Columns[4];
-            pic.ImageLayout = DataGridViewImageCellLayout.Zoom;
-
-            dgvThucDon.AutoGenerateColumns = false;
-            dgvThucDon.Columns["ThucDonID"].DataPropertyName = "thucDonID";
-            dgvThucDon.Columns["TenThucDon"].DataPropertyName = "tenThucDon";
-            dgvThucDon.Columns["Gia"].DataPropertyName = "gia";
-            dgvThucDon.Columns["TenDanhMuc"].DataPropertyName = "danhmuc";
-            dgvThucDon.Columns["HinhAnh"].DataPropertyName = "anh";
-            loadData();
-            resetInput();
-        }
-
-        private void txtTenThucDon_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private byte[] ImageToByteArray(PictureBox pictureBox)
@@ -114,6 +142,10 @@ namespace QuanLyCoffeeAndTea
             else if (txtGia.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập giá!!!");
+            }
+            else if(cmbDanhMuc.SelectedIndex == -1)
+            {
+                MessageBox.Show("Vui lòng chọn danh mục!!!");
             }
             else if (PictureBoxThucDon.Image == null)
             {
@@ -160,37 +192,58 @@ namespace QuanLyCoffeeAndTea
         {
             if (MessageBox.Show("Bạn có muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo) != DialogResult.No)
             {
-                var entry = contextDB.Entry(thucDon);
-                if (entry.State == EntityState.Detached)
-                    contextDB.THUCDONs.Attach(thucDon);
-                contextDB.THUCDONs.Remove(thucDon);
-                contextDB.SaveChanges();
-                loadData();
-                resetInput();
+                int a = Convert.ToInt32(dgvThucDon.SelectedRows[0].Cells[0].Value.ToString());
+                contextDB.THUCDONs
+                    .Where(item => item.ThucDonID == a)
+                    .Delete(i => new THUCDON
+                    {
+                        TenThucDon = txtTenThucDon.Text,
+                        Gia = Convert.ToDouble(txtGia.Text),
+                        DanhMucID = Convert.ToInt32(cmbDanhMuc.SelectedValue),
+                        HinhAnh = ImageToByteArray(PictureBoxThucDon)
+                    });
             }
+            loadData();
+            resetInput();
         }
 
         private void dgvThucDon_DoubleClick(object sender, EventArgs e)
         {
             if (dgvThucDon.CurrentRow.Index >= 0)
             {
-                thucDon.ThucDonID = Convert.ToInt32(dgvThucDon.CurrentRow.Cells["ThucDonID"].Value);
-                thucDon = contextDB.THUCDONs.Where(x => x.ThucDonID == thucDon.ThucDonID).FirstOrDefault();
-                txtTenThucDon.Text = thucDon.TenThucDon;
-                txtGia.Text = Convert.ToString(thucDon.Gia);
-                cmbDanhMuc.SelectedItem = Convert.ToString(thucDon.DanhMucID);
-                if (dgvThucDon.SelectedRows[0].Cells[4].Value.ToString() != "")
+                txtTenThucDon.Text = dgvThucDon.CurrentRow.Cells[1].Value.ToString();
+                cmbDanhMuc.Text = dgvThucDon.CurrentRow.Cells[2].Value.ToString();
+                txtGia.Text = Convert.ToString(dgvThucDon.CurrentRow.Cells[3].Value);
+                if (dgvThucDon.CurrentRow.Cells[4].Value.ToString() != "")
                 {
-                    MemoryStream memoryStream = new MemoryStream((byte[])thucDon.HinhAnh);
+                    MemoryStream memoryStream = new MemoryStream((byte[])dgvThucDon.CurrentRow.Cells[4].Value);
                     PictureBoxThucDon.Image = Image.FromStream(memoryStream);
                 }
                 else
                 {
                     PictureBoxThucDon.Image = null;
                 }
-                btnThucDonUser.Enabled = false;
                 btnCapNhat.Enabled = true;
                 btnXoa.Enabled = true;
+            }
+        }
+
+        private void txtGia_KeyPress(object sender, KeyPressEventArgs e)
+        { 
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            string key = txtTimKiem.Text;
+            if (key.Equals(""))
+                MessageBox.Show("Vui lòng nhập tên món cần tìm!!!");
+            else
+            {
+                currKey = key;
+                loadData();
+                currKey = "";
             }
         }
     }
