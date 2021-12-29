@@ -17,7 +17,7 @@ namespace QuanLyCoffeeAndTea
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormThucDonAdmin());
+            Application.Run(new FormLogin());
         }
     }
 }

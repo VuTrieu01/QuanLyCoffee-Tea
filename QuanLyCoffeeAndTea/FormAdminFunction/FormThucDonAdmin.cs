@@ -37,6 +37,7 @@ namespace QuanLyCoffeeAndTea
                     x.ThucDonID,
                     x.TenThucDon,
                     x.DANHMUC.TenDM,
+                    x.KichCo,
                     x.Gia,
                     x.HinhAnh
                 }).ToList();
@@ -67,14 +68,16 @@ namespace QuanLyCoffeeAndTea
             row["TenDM"] = "--Chọn món";
 
             table.Rows.InsertAt(row, 0);
-
-            /*cmbDanhMuc.ValueMember = "DanhMucID";
-            cmbDanhMuc.DisplayMember = "TenDM";*/
             cmbDanhMuc.DataSource = table;
+
+            //Thêm dữ liệu vào cmbKichCo
+            cmbKichCo.Items.Add("Không có");
+            cmbKichCo.Items.Add("Ice regular size");
+            cmbKichCo.Items.Add("Big size ice");
 
             //Cho ảnh vừa datagridView
             DataGridViewImageColumn pic = new DataGridViewImageColumn();
-            pic = (DataGridViewImageColumn)dgvThucDon.Columns[4];
+            pic = (DataGridViewImageColumn)dgvThucDon.Columns[5];
             pic.ImageLayout = DataGridViewImageCellLayout.Zoom;
             loadData();
             resetInput();
@@ -85,6 +88,7 @@ namespace QuanLyCoffeeAndTea
             thucDon.TenThucDon = txtTenThucDon.Text.Trim();
             thucDon.Gia = Convert.ToDouble(txtGia.Text.Trim());
             thucDon.DanhMucID = Convert.ToInt32(cmbDanhMuc.SelectedValue);
+            thucDon.KichCo = cmbKichCo.Text;
             thucDon.HinhAnh = ImageToByteArray(PictureBoxThucDon);
             contextDB.THUCDONs.Add(thucDon);
             contextDB.SaveChanges();
@@ -99,6 +103,7 @@ namespace QuanLyCoffeeAndTea
                     TenThucDon = txtTenThucDon.Text,
                     Gia = Convert.ToDouble(txtGia.Text),
                     DanhMucID = Convert.ToInt32(cmbDanhMuc.SelectedValue),
+                    KichCo = cmbKichCo.Text,
                     HinhAnh = ImageToByteArray(PictureBoxThucDon)
                 });
         }
@@ -108,6 +113,7 @@ namespace QuanLyCoffeeAndTea
             txtTenThucDon.Text = "";
             txtGia.Text = "";
             cmbDanhMuc.SelectedValue = -1;
+            cmbKichCo.SelectedIndex=0;
             txtTimKiem.Text = "";
             loadData();
             PictureBoxThucDon.Image = null;
@@ -139,13 +145,13 @@ namespace QuanLyCoffeeAndTea
             {
                 MessageBox.Show("Vui lòng nhập tên thực đơn!!!");
             }
+            else if (cmbDanhMuc.Text == "--Chọn món")
+            {
+                MessageBox.Show("Vui lòng chọn danh mục!!!");
+            }
             else if (txtGia.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập giá!!!");
-            }
-            else if(cmbDanhMuc.SelectedIndex == -1)
-            {
-                MessageBox.Show("Vui lòng chọn danh mục!!!");
             }
             else if (PictureBoxThucDon.Image == null)
             {
@@ -200,8 +206,9 @@ namespace QuanLyCoffeeAndTea
                         TenThucDon = txtTenThucDon.Text,
                         Gia = Convert.ToDouble(txtGia.Text),
                         DanhMucID = Convert.ToInt32(cmbDanhMuc.SelectedValue),
+                        KichCo = cmbKichCo.Text,
                         HinhAnh = ImageToByteArray(PictureBoxThucDon)
-                    });
+                    }); ;
             }
             loadData();
             resetInput();
@@ -213,10 +220,11 @@ namespace QuanLyCoffeeAndTea
             {
                 txtTenThucDon.Text = dgvThucDon.CurrentRow.Cells[1].Value.ToString();
                 cmbDanhMuc.Text = dgvThucDon.CurrentRow.Cells[2].Value.ToString();
-                txtGia.Text = Convert.ToString(dgvThucDon.CurrentRow.Cells[3].Value);
-                if (dgvThucDon.CurrentRow.Cells[4].Value.ToString() != "")
+                cmbKichCo.Text = dgvThucDon.CurrentRow.Cells[3].Value.ToString();
+                txtGia.Text = Convert.ToString(dgvThucDon.CurrentRow.Cells[4].Value);
+                if (dgvThucDon.CurrentRow.Cells[5].Value.ToString() != "")
                 {
-                    MemoryStream memoryStream = new MemoryStream((byte[])dgvThucDon.CurrentRow.Cells[4].Value);
+                    MemoryStream memoryStream = new MemoryStream((byte[])dgvThucDon.CurrentRow.Cells[5].Value);
                     PictureBoxThucDon.Image = Image.FromStream(memoryStream);
                 }
                 else

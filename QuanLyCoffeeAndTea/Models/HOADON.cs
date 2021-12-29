@@ -21,9 +21,6 @@ namespace QuanLyCoffeeAndTea.Models
 
         public DateTime? NgayHD { get; set; }
 
-        [StringLength(30)]
-        public string KichThuoc { get; set; }
-
         public int? SoLuong { get; set; }
 
         [StringLength(100)]

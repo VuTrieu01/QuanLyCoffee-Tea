@@ -38,15 +38,13 @@ namespace QuanLyCoffeeAndTea
             this.lblTitleChildForm = new System.Windows.Forms.Label();
             this.iconCurrentChildForm = new FontAwesome.Sharp.IconPictureBox();
             this.PanelMenu = new Guna.UI2.WinForms.Guna2Panel();
-            this.PanelAdmin = new Guna.UI2.WinForms.Guna2Panel();
             this.btnTaiKhoan = new FontAwesome.Sharp.IconButton();
-            this.btnThucDon = new FontAwesome.Sharp.IconButton();
-            this.btnNhanVien = new FontAwesome.Sharp.IconButton();
             this.btnDoanhThu = new FontAwesome.Sharp.IconButton();
-            this.btnSanPham = new FontAwesome.Sharp.IconButton();
-            this.btnThietBi = new FontAwesome.Sharp.IconButton();
+            this.btnNhanVien = new FontAwesome.Sharp.IconButton();
             this.btnDanhMuc = new FontAwesome.Sharp.IconButton();
-            this.PanelUser = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnThietBi = new FontAwesome.Sharp.IconButton();
+            this.btnSanPham = new FontAwesome.Sharp.IconButton();
+            this.btnThucDon = new FontAwesome.Sharp.IconButton();
             this.btnSanPhamUser = new FontAwesome.Sharp.IconButton();
             this.btnThucDonUser = new FontAwesome.Sharp.IconButton();
             this.btnDangXuat = new FontAwesome.Sharp.IconButton();
@@ -64,8 +62,6 @@ namespace QuanLyCoffeeAndTea
             this.PanelTitleChildForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).BeginInit();
             this.PanelMenu.SuspendLayout();
-            this.PanelAdmin.SuspendLayout();
-            this.PanelUser.SuspendLayout();
             this.guna2PanelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
             this.PanelChildForm.SuspendLayout();
@@ -156,8 +152,15 @@ namespace QuanLyCoffeeAndTea
             // PanelMenu
             // 
             this.PanelMenu.BackColor = System.Drawing.Color.White;
-            this.PanelMenu.Controls.Add(this.PanelAdmin);
-            this.PanelMenu.Controls.Add(this.PanelUser);
+            this.PanelMenu.Controls.Add(this.btnTaiKhoan);
+            this.PanelMenu.Controls.Add(this.btnDoanhThu);
+            this.PanelMenu.Controls.Add(this.btnNhanVien);
+            this.PanelMenu.Controls.Add(this.btnDanhMuc);
+            this.PanelMenu.Controls.Add(this.btnThietBi);
+            this.PanelMenu.Controls.Add(this.btnSanPham);
+            this.PanelMenu.Controls.Add(this.btnThucDon);
+            this.PanelMenu.Controls.Add(this.btnSanPhamUser);
+            this.PanelMenu.Controls.Add(this.btnThucDonUser);
             this.PanelMenu.Controls.Add(this.btnDangXuat);
             this.PanelMenu.Controls.Add(this.guna2PanelLogo);
             this.PanelMenu.Dock = System.Windows.Forms.DockStyle.Left;
@@ -167,25 +170,9 @@ namespace QuanLyCoffeeAndTea
             this.PanelMenu.Size = new System.Drawing.Size(220, 751);
             this.PanelMenu.TabIndex = 4;
             // 
-            // PanelAdmin
-            // 
-            this.PanelAdmin.AutoScroll = true;
-            this.PanelAdmin.Controls.Add(this.btnTaiKhoan);
-            this.PanelAdmin.Controls.Add(this.btnThucDon);
-            this.PanelAdmin.Controls.Add(this.btnNhanVien);
-            this.PanelAdmin.Controls.Add(this.btnDoanhThu);
-            this.PanelAdmin.Controls.Add(this.btnSanPham);
-            this.PanelAdmin.Controls.Add(this.btnThietBi);
-            this.PanelAdmin.Controls.Add(this.btnDanhMuc);
-            this.PanelAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelAdmin.Location = new System.Drawing.Point(0, 286);
-            this.PanelAdmin.Name = "PanelAdmin";
-            this.PanelAdmin.ShadowDecoration.Parent = this.PanelAdmin;
-            this.PanelAdmin.Size = new System.Drawing.Size(220, 410);
-            this.PanelAdmin.TabIndex = 24;
-            // 
             // btnTaiKhoan
             // 
+            this.btnTaiKhoan.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnTaiKhoan.FlatAppearance.BorderSize = 0;
             this.btnTaiKhoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTaiKhoan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
@@ -195,16 +182,131 @@ namespace QuanLyCoffeeAndTea
             this.btnTaiKhoan.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnTaiKhoan.IconSize = 40;
             this.btnTaiKhoan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTaiKhoan.Location = new System.Drawing.Point(0, 320);
+            this.btnTaiKhoan.Location = new System.Drawing.Point(0, 616);
             this.btnTaiKhoan.Name = "btnTaiKhoan";
             this.btnTaiKhoan.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnTaiKhoan.Size = new System.Drawing.Size(220, 55);
-            this.btnTaiKhoan.TabIndex = 16;
+            this.btnTaiKhoan.TabIndex = 17;
             this.btnTaiKhoan.Text = "Tài khoản";
             this.btnTaiKhoan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTaiKhoan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnTaiKhoan.UseVisualStyleBackColor = true;
             this.btnTaiKhoan.Click += new System.EventHandler(this.btnTaiKhoan_Click);
+            // 
+            // btnDoanhThu
+            // 
+            this.btnDoanhThu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDoanhThu.FlatAppearance.BorderSize = 0;
+            this.btnDoanhThu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDoanhThu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnDoanhThu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnDoanhThu.IconChar = FontAwesome.Sharp.IconChar.ChartPie;
+            this.btnDoanhThu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnDoanhThu.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDoanhThu.IconSize = 39;
+            this.btnDoanhThu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDoanhThu.Location = new System.Drawing.Point(0, 561);
+            this.btnDoanhThu.Name = "btnDoanhThu";
+            this.btnDoanhThu.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnDoanhThu.Size = new System.Drawing.Size(220, 55);
+            this.btnDoanhThu.TabIndex = 17;
+            this.btnDoanhThu.Text = "Doanh thu";
+            this.btnDoanhThu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDoanhThu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDoanhThu.UseVisualStyleBackColor = true;
+            this.btnDoanhThu.Click += new System.EventHandler(this.btnDoanhThu_Click);
+            // 
+            // btnNhanVien
+            // 
+            this.btnNhanVien.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNhanVien.FlatAppearance.BorderSize = 0;
+            this.btnNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNhanVien.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnNhanVien.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnNhanVien.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
+            this.btnNhanVien.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnNhanVien.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNhanVien.IconSize = 40;
+            this.btnNhanVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNhanVien.Location = new System.Drawing.Point(0, 506);
+            this.btnNhanVien.Name = "btnNhanVien";
+            this.btnNhanVien.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnNhanVien.Size = new System.Drawing.Size(220, 55);
+            this.btnNhanVien.TabIndex = 17;
+            this.btnNhanVien.Text = "Nhân viên";
+            this.btnNhanVien.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNhanVien.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNhanVien.UseVisualStyleBackColor = true;
+            this.btnNhanVien.Click += new System.EventHandler(this.btnNhanVien_Click);
+            // 
+            // btnDanhMuc
+            // 
+            this.btnDanhMuc.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDanhMuc.FlatAppearance.BorderSize = 0;
+            this.btnDanhMuc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDanhMuc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnDanhMuc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnDanhMuc.IconChar = FontAwesome.Sharp.IconChar.List;
+            this.btnDanhMuc.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnDanhMuc.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDanhMuc.IconSize = 38;
+            this.btnDanhMuc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDanhMuc.Location = new System.Drawing.Point(0, 451);
+            this.btnDanhMuc.Name = "btnDanhMuc";
+            this.btnDanhMuc.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnDanhMuc.Size = new System.Drawing.Size(220, 55);
+            this.btnDanhMuc.TabIndex = 17;
+            this.btnDanhMuc.Text = "Danh mục";
+            this.btnDanhMuc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDanhMuc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDanhMuc.UseVisualStyleBackColor = true;
+            this.btnDanhMuc.Click += new System.EventHandler(this.btnDanhMuc_Click);
+            // 
+            // btnThietBi
+            // 
+            this.btnThietBi.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnThietBi.FlatAppearance.BorderSize = 0;
+            this.btnThietBi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThietBi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnThietBi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnThietBi.IconChar = FontAwesome.Sharp.IconChar.MobileAlt;
+            this.btnThietBi.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnThietBi.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnThietBi.IconSize = 40;
+            this.btnThietBi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnThietBi.Location = new System.Drawing.Point(0, 396);
+            this.btnThietBi.Name = "btnThietBi";
+            this.btnThietBi.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnThietBi.Size = new System.Drawing.Size(220, 55);
+            this.btnThietBi.TabIndex = 17;
+            this.btnThietBi.Text = "Thiết bị";
+            this.btnThietBi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnThietBi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnThietBi.UseVisualStyleBackColor = true;
+            this.btnThietBi.Click += new System.EventHandler(this.btnThietBi_Click);
+            // 
+            // btnSanPham
+            // 
+            this.btnSanPham.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSanPham.FlatAppearance.BorderSize = 0;
+            this.btnSanPham.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSanPham.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnSanPham.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnSanPham.IconChar = FontAwesome.Sharp.IconChar.Boxes;
+            this.btnSanPham.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnSanPham.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSanPham.IconSize = 40;
+            this.btnSanPham.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSanPham.Location = new System.Drawing.Point(0, 341);
+            this.btnSanPham.Name = "btnSanPham";
+            this.btnSanPham.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnSanPham.Size = new System.Drawing.Size(220, 55);
+            this.btnSanPham.TabIndex = 28;
+            this.btnSanPham.Text = "Sản phẩm";
+            this.btnSanPham.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSanPham.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSanPham.UseVisualStyleBackColor = true;
+            this.btnSanPham.Click += new System.EventHandler(this.btnSanPham_Click);
             // 
             // btnThucDon
             // 
@@ -218,137 +320,16 @@ namespace QuanLyCoffeeAndTea
             this.btnThucDon.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnThucDon.IconSize = 40;
             this.btnThucDon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThucDon.Location = new System.Drawing.Point(0, 0);
+            this.btnThucDon.Location = new System.Drawing.Point(0, 286);
             this.btnThucDon.Name = "btnThucDon";
             this.btnThucDon.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnThucDon.Size = new System.Drawing.Size(220, 55);
-            this.btnThucDon.TabIndex = 10;
+            this.btnThucDon.TabIndex = 27;
             this.btnThucDon.Text = "Thực đơn";
             this.btnThucDon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnThucDon.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnThucDon.UseVisualStyleBackColor = true;
             this.btnThucDon.Click += new System.EventHandler(this.btnThucDon_Click);
-            // 
-            // btnNhanVien
-            // 
-            this.btnNhanVien.FlatAppearance.BorderSize = 0;
-            this.btnNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNhanVien.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnNhanVien.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnNhanVien.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
-            this.btnNhanVien.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnNhanVien.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnNhanVien.IconSize = 40;
-            this.btnNhanVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNhanVien.Location = new System.Drawing.Point(0, 214);
-            this.btnNhanVien.Name = "btnNhanVien";
-            this.btnNhanVien.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnNhanVien.Size = new System.Drawing.Size(220, 55);
-            this.btnNhanVien.TabIndex = 14;
-            this.btnNhanVien.Text = "Nhân viên";
-            this.btnNhanVien.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNhanVien.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnNhanVien.UseVisualStyleBackColor = true;
-            this.btnNhanVien.Click += new System.EventHandler(this.btnNhanVien_Click);
-            // 
-            // btnDoanhThu
-            // 
-            this.btnDoanhThu.FlatAppearance.BorderSize = 0;
-            this.btnDoanhThu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDoanhThu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnDoanhThu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnDoanhThu.IconChar = FontAwesome.Sharp.IconChar.ChartPie;
-            this.btnDoanhThu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnDoanhThu.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnDoanhThu.IconSize = 39;
-            this.btnDoanhThu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDoanhThu.Location = new System.Drawing.Point(0, 267);
-            this.btnDoanhThu.Name = "btnDoanhThu";
-            this.btnDoanhThu.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnDoanhThu.Size = new System.Drawing.Size(220, 55);
-            this.btnDoanhThu.TabIndex = 15;
-            this.btnDoanhThu.Text = "Doanh thu";
-            this.btnDoanhThu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDoanhThu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDoanhThu.UseVisualStyleBackColor = true;
-            this.btnDoanhThu.Click += new System.EventHandler(this.btnDoanhThu_Click);
-            // 
-            // btnSanPham
-            // 
-            this.btnSanPham.FlatAppearance.BorderSize = 0;
-            this.btnSanPham.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSanPham.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnSanPham.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnSanPham.IconChar = FontAwesome.Sharp.IconChar.Boxes;
-            this.btnSanPham.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnSanPham.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSanPham.IconSize = 40;
-            this.btnSanPham.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSanPham.Location = new System.Drawing.Point(0, 55);
-            this.btnSanPham.Name = "btnSanPham";
-            this.btnSanPham.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnSanPham.Size = new System.Drawing.Size(220, 55);
-            this.btnSanPham.TabIndex = 11;
-            this.btnSanPham.Text = "Sản phẩm";
-            this.btnSanPham.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSanPham.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSanPham.UseVisualStyleBackColor = true;
-            this.btnSanPham.Click += new System.EventHandler(this.btnSanPham_Click);
-            // 
-            // btnThietBi
-            // 
-            this.btnThietBi.FlatAppearance.BorderSize = 0;
-            this.btnThietBi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThietBi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnThietBi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnThietBi.IconChar = FontAwesome.Sharp.IconChar.MobileAlt;
-            this.btnThietBi.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnThietBi.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnThietBi.IconSize = 40;
-            this.btnThietBi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThietBi.Location = new System.Drawing.Point(0, 108);
-            this.btnThietBi.Name = "btnThietBi";
-            this.btnThietBi.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnThietBi.Size = new System.Drawing.Size(220, 55);
-            this.btnThietBi.TabIndex = 12;
-            this.btnThietBi.Text = "Thiết bị";
-            this.btnThietBi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThietBi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnThietBi.UseVisualStyleBackColor = true;
-            this.btnThietBi.Click += new System.EventHandler(this.btnThietBi_Click);
-            // 
-            // btnDanhMuc
-            // 
-            this.btnDanhMuc.FlatAppearance.BorderSize = 0;
-            this.btnDanhMuc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDanhMuc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnDanhMuc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnDanhMuc.IconChar = FontAwesome.Sharp.IconChar.List;
-            this.btnDanhMuc.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnDanhMuc.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnDanhMuc.IconSize = 38;
-            this.btnDanhMuc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDanhMuc.Location = new System.Drawing.Point(0, 161);
-            this.btnDanhMuc.Name = "btnDanhMuc";
-            this.btnDanhMuc.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnDanhMuc.Size = new System.Drawing.Size(220, 55);
-            this.btnDanhMuc.TabIndex = 13;
-            this.btnDanhMuc.Text = "Danh mục";
-            this.btnDanhMuc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDanhMuc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDanhMuc.UseVisualStyleBackColor = true;
-            this.btnDanhMuc.Click += new System.EventHandler(this.btnDanhMuc_Click);
-            // 
-            // PanelUser
-            // 
-            this.PanelUser.Controls.Add(this.btnSanPhamUser);
-            this.PanelUser.Controls.Add(this.btnThucDonUser);
-            this.PanelUser.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanelUser.Location = new System.Drawing.Point(0, 176);
-            this.PanelUser.Name = "PanelUser";
-            this.PanelUser.ShadowDecoration.Parent = this.PanelUser;
-            this.PanelUser.Size = new System.Drawing.Size(220, 110);
-            this.PanelUser.TabIndex = 23;
             // 
             // btnSanPhamUser
             // 
@@ -362,11 +343,11 @@ namespace QuanLyCoffeeAndTea
             this.btnSanPhamUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSanPhamUser.IconSize = 40;
             this.btnSanPhamUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSanPhamUser.Location = new System.Drawing.Point(0, 55);
+            this.btnSanPhamUser.Location = new System.Drawing.Point(0, 231);
             this.btnSanPhamUser.Name = "btnSanPhamUser";
             this.btnSanPhamUser.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnSanPhamUser.Size = new System.Drawing.Size(220, 55);
-            this.btnSanPhamUser.TabIndex = 22;
+            this.btnSanPhamUser.TabIndex = 26;
             this.btnSanPhamUser.Text = "Sản phẩm";
             this.btnSanPhamUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSanPhamUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -385,11 +366,11 @@ namespace QuanLyCoffeeAndTea
             this.btnThucDonUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnThucDonUser.IconSize = 40;
             this.btnThucDonUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThucDonUser.Location = new System.Drawing.Point(0, 0);
+            this.btnThucDonUser.Location = new System.Drawing.Point(0, 176);
             this.btnThucDonUser.Name = "btnThucDonUser";
             this.btnThucDonUser.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnThucDonUser.Size = new System.Drawing.Size(220, 55);
-            this.btnThucDonUser.TabIndex = 22;
+            this.btnThucDonUser.TabIndex = 25;
             this.btnThucDonUser.Text = "Thực đơn";
             this.btnThucDonUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnThucDonUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -523,8 +504,6 @@ namespace QuanLyCoffeeAndTea
             this.PanelTitleChildForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).EndInit();
             this.PanelMenu.ResumeLayout(false);
-            this.PanelAdmin.ResumeLayout(false);
-            this.PanelUser.ResumeLayout(false);
             this.guna2PanelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).EndInit();
             this.PanelChildForm.ResumeLayout(false);
@@ -551,19 +530,17 @@ namespace QuanLyCoffeeAndTea
         private FontAwesome.Sharp.IconPictureBox iconCurrentChildForm;
         private System.Windows.Forms.Label lblTitleChildForm;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl4;
-        private Guna.UI2.WinForms.Guna2Panel PanelUser;
-        private FontAwesome.Sharp.IconButton btnSanPhamUser;
-        private FontAwesome.Sharp.IconButton btnThucDonUser;
-        private Guna.UI2.WinForms.Guna2Panel PanelAdmin;
-        private FontAwesome.Sharp.IconButton btnTaiKhoan;
-        private FontAwesome.Sharp.IconButton btnThucDon;
-        private FontAwesome.Sharp.IconButton btnNhanVien;
-        private FontAwesome.Sharp.IconButton btnDoanhThu;
-        private FontAwesome.Sharp.IconButton btnSanPham;
-        private FontAwesome.Sharp.IconButton btnThietBi;
-        private FontAwesome.Sharp.IconButton btnDanhMuc;
         private Guna.UI2.WinForms.Guna2Panel PanelChildForm;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private FontAwesome.Sharp.IconButton btnSanPhamUser;
+        private FontAwesome.Sharp.IconButton btnThucDonUser;
+        private FontAwesome.Sharp.IconButton btnThucDon;
+        private FontAwesome.Sharp.IconButton btnDoanhThu;
+        private FontAwesome.Sharp.IconButton btnNhanVien;
+        private FontAwesome.Sharp.IconButton btnDanhMuc;
+        private FontAwesome.Sharp.IconButton btnThietBi;
+        private FontAwesome.Sharp.IconButton btnSanPham;
+        private FontAwesome.Sharp.IconButton btnTaiKhoan;
     }
 }

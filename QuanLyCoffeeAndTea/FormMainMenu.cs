@@ -23,18 +23,25 @@ namespace QuanLyCoffeeAndTea
         {
             InitializeComponent();
             leftBorderBtn = new Panel();
-            leftBorderBtn.Size = new Size(7,60);
+            leftBorderBtn.Size = new Size(7,55);
             PanelMenu.Controls.Add(leftBorderBtn);
             // can giua man hinh
             this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
                           (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2);
             if(FormLogin.info.Quyen != true)
             {
-                PanelAdmin.Visible = false;
+                btnThucDon.Visible = false;
+                btnSanPham.Visible = false;
+                btnThietBi.Visible = false;
+                btnDanhMuc.Visible = false;
+                btnNhanVien.Visible = false;
+                btnDoanhThu.Visible = false;
+                btnTaiKhoan.Visible = false;
             }
             else
             {
-                PanelUser.Visible = false;
+                btnThucDonUser.Visible = false;
+                btnSanPhamUser.Visible = false;
             }
         }
 
@@ -102,48 +109,6 @@ namespace QuanLyCoffeeAndTea
             lblTitleChildForm.Text = childForm.Text;
         }
 
-        private void btnThucDon_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColor.color3);
-            openChildForm(new FormThucDonAdmin());
-        }
-
-        private void btnNhanVien_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColor.color1);
-            openChildForm(new FormNhanVien());
-        }
-
-        private void btnThietBi_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColor.color2);
-            openChildForm(new FormThietBi());
-        }
-
-        private void btnDanhMuc_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColor.color4);
-            openChildForm(new FormDanhMuc());
-        }
-
-        private void btnSanPham_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColor.color5);
-            openChildForm(new FormSanPhamAdmin());
-        }
-
-        private void btnDoanhThu_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColor.color6);
-            openChildForm(new FormDoanhThu());
-        }
-
-        private void btnTaiKhoan_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColor.color1);
-            openChildForm(new FormTaiKhoan());
-        }
-
         private void Reset()
         {
             DisableButton();
@@ -162,13 +127,10 @@ namespace QuanLyCoffeeAndTea
             }
         }
 
-        private void btnDangXuat_Click(object sender, EventArgs e)
+        private void btnThucDonUser_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Bạn muốn đăng xuất khỏi chương trình", "Thông báo", MessageBoxButtons.YesNo) != DialogResult.No)
-            {
-                FormLogin.instance.Visible = true;
-                this.Dispose();
-            }
+            ActivateButton(sender, RGBColor.color3);
+            openChildForm(new FormThucDonUser());
         }
 
         private void btnSanPhamUser_Click(object sender, EventArgs e)
@@ -177,10 +139,55 @@ namespace QuanLyCoffeeAndTea
             openChildForm(new FormSanPhamUser());
         }
 
-        private void btnThucDonUser_Click(object sender, EventArgs e)
+        private void btnThucDon_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColor.color3);
-            openChildForm(new FormThucDonUser());
+            openChildForm(new FormThucDonAdmin());
+        }
+
+        private void btnSanPham_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColor.color5);
+            openChildForm(new FormSanPhamAdmin());
+        }
+
+        private void btnThietBi_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColor.color2);
+            openChildForm(new FormThietBi());
+        }
+
+        private void btnDanhMuc_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColor.color4);
+            openChildForm(new FormDanhMuc());
+        }
+
+        private void btnNhanVien_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColor.color1);
+            openChildForm(new FormNhanVien());
+        }
+
+        private void btnDoanhThu_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColor.color6);
+            openChildForm(new FormDoanhThu());
+        }
+
+        private void btnTaiKhoan_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColor.color1);
+            openChildForm(new FormTaiKhoan());
+        }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn muốn đăng xuất khỏi chương trình", "Thông báo", MessageBoxButtons.YesNo) != DialogResult.No)
+            {
+                FormLogin.instance.Visible = true;
+                this.Dispose();
+            }
         }
     }
 }

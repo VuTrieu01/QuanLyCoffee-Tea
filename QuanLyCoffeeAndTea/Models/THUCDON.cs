@@ -20,6 +20,9 @@ namespace QuanLyCoffeeAndTea.Models
         [StringLength(50)]
         public string TenThucDon { get; set; }
 
+        [StringLength(50)]
+        public string KichCo { get; set; }
+
         [Column(TypeName = "image")]
         public byte[] HinhAnh { get; set; }
 
