@@ -32,3 +32,4 @@ G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanL
 G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\bin\Debug\Z.EntityFramework.Extensions.xml
 G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\bin\Debug\Z.EntityFramework.Plus.EF6.xml
 G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\bin\Debug\Z.Expressions.Eval.xml
+G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\bin\Debug\Guna.Charts.WinForms.dll

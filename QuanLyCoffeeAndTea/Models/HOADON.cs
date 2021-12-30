@@ -19,7 +19,7 @@ namespace QuanLyCoffeeAndTea.Models
 
         public int NhanVienID { get; set; }
 
-        public DateTime? NgayHD { get; set; }
+        public DateTime NgayHD { get; set; }
 
         public int? SoLuong { get; set; }
 
