@@ -10,7 +10,7 @@ Create table NHANVIEN(
 NhanVienID int IDENTITY(1,1),
 TenNV nvarchar(50),
 NgaySinh Datetime,
-GioiTinh bit,
+GioiTinh nvarchar(5),
 SDT int,
 ChucVu nvarchar(20),
 Primary Key(NhanVienID))

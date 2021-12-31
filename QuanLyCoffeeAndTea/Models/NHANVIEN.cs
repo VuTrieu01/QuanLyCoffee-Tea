@@ -23,7 +23,8 @@ namespace QuanLyCoffeeAndTea.Models
 
         public DateTime? NgaySinh { get; set; }
 
-        public bool? GioiTinh { get; set; }
+        [StringLength(5)]
+        public string GioiTinh { get; set; }
 
         public int? SDT { get; set; }
 
