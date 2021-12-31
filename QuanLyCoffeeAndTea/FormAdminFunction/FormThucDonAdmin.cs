@@ -108,6 +108,20 @@ namespace QuanLyCoffeeAndTea
                 });
         }
 
+        private void DeleteData()
+        {
+            int a = Convert.ToInt32(dgvThucDon.SelectedRows[0].Cells[0].Value.ToString());
+            contextDB.THUCDONs
+                .Where(item => item.ThucDonID == a)
+                .Delete(i => new THUCDON
+                {
+                    TenThucDon = txtTenThucDon.Text,
+                    Gia = Convert.ToDouble(txtGia.Text),
+                    DanhMucID = Convert.ToInt32(cmbDanhMuc.SelectedValue),
+                    KichCo = cmbKichCo.Text,
+                    HinhAnh = ImageToByteArray(PictureBoxThucDon)
+                }); ;
+        }
         private void resetInput()
         {
             txtTenThucDon.Text = "";
@@ -189,28 +203,18 @@ namespace QuanLyCoffeeAndTea
             }
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            resetInput();
-        }
-
         private void btnXoa_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo) != DialogResult.No)
             {
-                int a = Convert.ToInt32(dgvThucDon.SelectedRows[0].Cells[0].Value.ToString());
-                contextDB.THUCDONs
-                    .Where(item => item.ThucDonID == a)
-                    .Delete(i => new THUCDON
-                    {
-                        TenThucDon = txtTenThucDon.Text,
-                        Gia = Convert.ToDouble(txtGia.Text),
-                        DanhMucID = Convert.ToInt32(cmbDanhMuc.SelectedValue),
-                        KichCo = cmbKichCo.Text,
-                        HinhAnh = ImageToByteArray(PictureBoxThucDon)
-                    }); ;
+                DeleteData();
             }
             loadData();
+            resetInput();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
             resetInput();
         }
 
