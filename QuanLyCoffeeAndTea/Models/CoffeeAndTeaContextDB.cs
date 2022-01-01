@@ -43,6 +43,11 @@ namespace QuanLyCoffeeAndTea.Models
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<NHANVIEN>()
+                .Property(e => e.SDT)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<NHANVIEN>()
                 .HasMany(e => e.ACCOUNTs)
                 .WithRequired(e => e.NHANVIEN)
                 .WillCascadeOnDelete(false);

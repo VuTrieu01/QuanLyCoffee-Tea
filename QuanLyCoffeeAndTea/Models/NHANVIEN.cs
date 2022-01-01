@@ -26,7 +26,8 @@ namespace QuanLyCoffeeAndTea.Models
         [StringLength(5)]
         public string GioiTinh { get; set; }
 
-        public int? SDT { get; set; }
+        [StringLength(10)]
+        public string SDT { get; set; }
 
         [StringLength(20)]
         public string ChucVu { get; set; }

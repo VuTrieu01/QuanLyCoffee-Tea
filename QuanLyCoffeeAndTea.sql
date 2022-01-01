@@ -11,7 +11,7 @@ NhanVienID int IDENTITY(1,1),
 TenNV nvarchar(50),
 NgaySinh Datetime,
 GioiTinh nvarchar(5),
-SDT int,
+SDT char(10),
 ChucVu nvarchar(20),
 Primary Key(NhanVienID))
 go
