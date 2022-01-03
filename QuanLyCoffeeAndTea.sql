@@ -66,17 +66,165 @@ go
 --Tao bang HOADON
 Create table HOADON(
 HoaDonID int IDENTITY(1,1),
+ThietBiID int,
+NgayHD Datetime,
+TrangThai bit,
+Primary Key(HoaDonID),
+foreign key (ThietBiID) references THIETBI)
+go
+
+--Tao bang CHITIETHOADON
+Create table CHITIETHOADON(
+IDCTHD int IDENTITY(1,1),
+HoaDonID int,
 ThucDonID int,
 SanPhamID int,
-ThietBiID int,
 NhanVienID int not null,
-NgayHD Datetime,
 SoLuong int,
 GhiChu nvarchar(100),
 ThanhTien float,
-Primary Key(HoaDonID),
+Primary Key(IDCTHD),
+foreign key (HoaDonID) references HOADON,
 foreign key (ThucDonID) references THUCDON,
 foreign key (SanPhamID) references SANPHAM,
-foreign key (ThietBiID) references THIETBI,
 foreign key (NhanVienID) references NHANVIEN)
 go
+
+
+--Them du lieu HOADON
+INSERT INTO [dbo].[HOADON]
+           ([ThietBiID]
+           ,[NgayHD]
+           ,[TrangThai])
+     VALUES
+           (1
+           ,2022-01-02
+           ,0)
+GO
+
+INSERT INTO [dbo].[HOADON]
+           ([ThietBiID]
+           ,[NgayHD]
+           ,[TrangThai])
+     VALUES
+           (2
+           ,2022-01-02
+           ,0)
+GO
+
+INSERT INTO [dbo].[HOADON]
+           ([ThietBiID]
+           ,[NgayHD]
+           ,[TrangThai])
+     VALUES
+           (3
+           ,2022-01-02
+           ,1)
+GO
+
+INSERT INTO [dbo].[HOADON]
+           ([ThietBiID]
+           ,[NgayHD]
+           ,[TrangThai])
+     VALUES
+           (4
+           ,2022-01-02
+           ,0)
+GO
+
+--Them du lieu CHITIETHOADON
+INSERT INTO [dbo].[CHITIETHOADON]
+           ([HoaDonID]
+           ,[ThucDonID]
+           ,[SanPhamID]
+           ,[NhanVienID]
+           ,[SoLuong]
+           ,[GhiChu]
+           ,[ThanhTien])
+     VALUES
+           (1, 28, NULL, 2, 1, NULL, 20000)
+GO
+
+INSERT INTO [dbo].[CHITIETHOADON]
+           ([HoaDonID]
+           ,[ThucDonID]
+           ,[SanPhamID]
+           ,[NhanVienID]
+           ,[SoLuong]
+           ,[GhiChu]
+           ,[ThanhTien])
+     VALUES
+           (1, 29, NULL, 2, 1, NULL, 25000)
+GO
+
+INSERT INTO [dbo].[CHITIETHOADON]
+           ([HoaDonID]
+           ,[ThucDonID]
+           ,[SanPhamID]
+           ,[NhanVienID]
+           ,[SoLuong]
+           ,[GhiChu]
+           ,[ThanhTien])
+     VALUES
+           (2, 28, NULL, 2, 1, NULL, 20000)
+GO
+
+INSERT INTO [dbo].[CHITIETHOADON]
+           ([HoaDonID]
+           ,[ThucDonID]
+           ,[SanPhamID]
+           ,[NhanVienID]
+           ,[SoLuong]
+           ,[GhiChu]
+           ,[ThanhTien])
+     VALUES
+           (2, 29, NULL, 2, 1, NULL, 25000)
+GO
+
+INSERT INTO [dbo].[CHITIETHOADON]
+           ([HoaDonID]
+           ,[ThucDonID]
+           ,[SanPhamID]
+           ,[NhanVienID]
+           ,[SoLuong]
+           ,[GhiChu]
+           ,[ThanhTien])
+     VALUES
+           (3, 28, NULL, 2, 1, NULL, 20000)
+GO
+
+INSERT INTO [dbo].[CHITIETHOADON]
+           ([HoaDonID]
+           ,[ThucDonID]
+           ,[SanPhamID]
+           ,[NhanVienID]
+           ,[SoLuong]
+           ,[GhiChu]
+           ,[ThanhTien])
+     VALUES
+           (3, 29, NULL, 2, 1, NULL, 25000)
+GO
+
+INSERT INTO [dbo].[CHITIETHOADON]
+           ([HoaDonID]
+           ,[ThucDonID]
+           ,[SanPhamID]
+           ,[NhanVienID]
+           ,[SoLuong]
+           ,[GhiChu]
+           ,[ThanhTien])
+     VALUES
+           (4, 28, NULL, 2, 1, NULL, 20000)
+GO
+
+INSERT INTO [dbo].[CHITIETHOADON]
+           ([HoaDonID]
+           ,[ThucDonID]
+           ,[SanPhamID]
+           ,[NhanVienID]
+           ,[SoLuong]
+           ,[GhiChu]
+           ,[ThanhTien])
+     VALUES
+           (4, 29, NULL, 2, 1, NULL, 25000)
+GO

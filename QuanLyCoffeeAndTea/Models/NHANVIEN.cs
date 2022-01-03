@@ -13,7 +13,7 @@ namespace QuanLyCoffeeAndTea.Models
         public NHANVIEN()
         {
             ACCOUNTs = new HashSet<ACCOUNT>();
-            HOADONs = new HashSet<HOADON>();
+            CHITIETHOADONs = new HashSet<CHITIETHOADON>();
         }
 
         public int NhanVienID { get; set; }
@@ -36,6 +36,6 @@ namespace QuanLyCoffeeAndTea.Models
         public virtual ICollection<ACCOUNT> ACCOUNTs { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HOADON> HOADONs { get; set; }
+        public virtual ICollection<CHITIETHOADON> CHITIETHOADONs { get; set; }
     }
 }

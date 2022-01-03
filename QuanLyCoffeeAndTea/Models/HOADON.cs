@@ -9,31 +9,23 @@ namespace QuanLyCoffeeAndTea.Models
     [Table("HOADON")]
     public partial class HOADON
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public HOADON()
+        {
+            CHITIETHOADONs = new HashSet<CHITIETHOADON>();
+        }
+
         public int HoaDonID { get; set; }
-
-        public int? ThucDonID { get; set; }
-
-        public int? SanPhamID { get; set; }
 
         public int? ThietBiID { get; set; }
 
-        public int NhanVienID { get; set; }
+        public DateTime? NgayHD { get; set; }
 
-        public DateTime NgayHD { get; set; }
+        public bool? TrangThai { get; set; }
 
-        public int? SoLuong { get; set; }
-
-        [StringLength(100)]
-        public string GhiChu { get; set; }
-
-        public double? ThanhTien { get; set; }
-
-        public virtual NHANVIEN NHANVIEN { get; set; }
-
-        public virtual SANPHAM SANPHAM { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CHITIETHOADON> CHITIETHOADONs { get; set; }
 
         public virtual THIETBI THIETBI { get; set; }
-
-        public virtual THUCDON THUCDON { get; set; }
     }
 }

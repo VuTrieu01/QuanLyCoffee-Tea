@@ -40,21 +40,21 @@ namespace QuanLyCoffeeAndTea.FormAdminFunction
             int day = 6, number = 0,  totalNumber = 0;
             DateTime startDate;
 
-            var query = contextDB.HOADONs;
+            var query = contextDB.CHITIETHOADONs;
 
             while(day >= 0)
             {
                 startDate = DateTime.Today.AddDays(-day--).Date;
-                var result = query.Where(x => DbFunctions.TruncateTime(x.NgayHD) == startDate);
+                var result = query.Where(x => DbFunctions.TruncateTime(x.HOADON.NgayHD) == startDate);
                 money = Convert.ToDouble(result.Sum(x => x.ThanhTien));
                 number = result.Count();
                 totalNumber += number;
                 arr.Add(money);
             };
 
-            revenueMonth = query.AsEnumerable().Where(x => getMonth(x.NgayHD) == month)
+            revenueMonth = query.AsEnumerable().Where(x => getMonth((DateTime)x.HOADON.NgayHD) == month)
                 .Sum(x => x.ThanhTien).ToString() + "VNĐ";
-            revenueYear = query.AsEnumerable().Where(x => getYear(x.NgayHD) == year)
+            revenueYear = query.AsEnumerable().Where(x => getYear((DateTime)x.HOADON.NgayHD) == year)
                 .Sum(x => x.ThanhTien).ToString() + " VNĐ";
         }
 

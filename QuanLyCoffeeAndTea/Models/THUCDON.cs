@@ -12,7 +12,7 @@ namespace QuanLyCoffeeAndTea.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public THUCDON()
         {
-            HOADONs = new HashSet<HOADON>();
+            CHITIETHOADONs = new HashSet<CHITIETHOADON>();
         }
 
         public int ThucDonID { get; set; }
@@ -30,9 +30,14 @@ namespace QuanLyCoffeeAndTea.Models
 
         public int DanhMucID { get; set; }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CHITIETHOADON> CHITIETHOADONs { get; set; }
+
         public virtual DANHMUC DANHMUC { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HOADON> HOADONs { get; set; }
+        public static implicit operator THUCDON(float v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

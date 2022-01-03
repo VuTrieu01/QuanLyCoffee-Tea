@@ -12,7 +12,7 @@ namespace QuanLyCoffeeAndTea.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SANPHAM()
         {
-            HOADONs = new HashSet<HOADON>();
+            CHITIETHOADONs = new HashSet<CHITIETHOADON>();
         }
 
         public int SanPhamID { get; set; }
@@ -27,9 +27,9 @@ namespace QuanLyCoffeeAndTea.Models
 
         public int DanhMucID { get; set; }
 
-        public virtual DANHMUC DANHMUC { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HOADON> HOADONs { get; set; }
+        public virtual ICollection<CHITIETHOADON> CHITIETHOADONs { get; set; }
+
+        public virtual DANHMUC DANHMUC { get; set; }
     }
 }

@@ -134,11 +134,11 @@
     <Compile Include="FormAdminFunction\FormThucDonAdmin.Designer.cs">
       <DependentUpon>FormThucDonAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormUserFunction\FormHoaDon.cs">
+    <Compile Include="FormUserFunction\FormThemThucDon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormUserFunction\FormHoaDon.Designer.cs">
-      <DependentUpon>FormHoaDon.cs</DependentUpon>
+    <Compile Include="FormUserFunction\FormThemThucDon.Designer.cs">
+      <DependentUpon>FormThemThucDon.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUserFunction\FormSanPhamUser.cs">
       <SubType>Form</SubType>
@@ -153,6 +153,7 @@
       <DependentUpon>FormThucDonUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\ACCOUNT.cs" />
+    <Compile Include="Models\CHITIETHOADON.cs" />
     <Compile Include="Models\CoffeeAndTeaContextDB.cs" />
     <Compile Include="Models\DANHMUC.cs" />
     <Compile Include="Models\HOADON.cs" />
@@ -189,8 +190,8 @@
     <EmbeddedResource Include="FormAdminFunction\FormThietBi.resx">
       <DependentUpon>FormThietBi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormUserFunction\FormHoaDon.resx">
-      <DependentUpon>FormHoaDon.cs</DependentUpon>
+    <EmbeddedResource Include="FormUserFunction\FormThemThucDon.resx">
+      <DependentUpon>FormThemThucDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUserFunction\FormSanPhamUser.resx">
       <DependentUpon>FormSanPhamUser.cs</DependentUpon>
@@ -237,6 +238,8 @@
   <ItemGroup>
     <None Include="Image\BackgroundColor.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Images\ThucDon\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

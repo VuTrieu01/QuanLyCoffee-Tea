@@ -19,6 +19,9 @@ namespace QuanLyCoffeeAndTea
         CoffeeAndTeaContextDB contextDB = new CoffeeAndTeaContextDB();
         THUCDON thucDon = new THUCDON();
         private string currKey = "";
+        private string newImg = @"..\..\Images\ThucDon\";
+        private string selectedFile;
+
         public FormThucDonAdmin()
         {
             InitializeComponent();
@@ -92,6 +95,10 @@ namespace QuanLyCoffeeAndTea
             thucDon.HinhAnh = ImageToByteArray(PictureBoxThucDon);
             contextDB.THUCDONs.Add(thucDon);
             contextDB.SaveChanges();
+                string fileExt = System.IO.Path.GetExtension(selectedFile);
+                string resultFileCopy = newImg + thucDon.ThucDonID + fileExt;
+                if (!resultFileCopy.Equals(selectedFile))
+                    System.IO.File.Copy(selectedFile, resultFileCopy);
         }
 
         private void updateData()
@@ -106,6 +113,10 @@ namespace QuanLyCoffeeAndTea
                     KichCo = cmbKichCo.Text,
                     HinhAnh = ImageToByteArray(PictureBoxThucDon)
                 });
+                string fileExt = System.IO.Path.GetExtension(selectedFile);
+                string resultFileCopy = newImg + a + fileExt;
+            if (!resultFileCopy.Equals(selectedFile))
+                System.IO.File.Copy(selectedFile, resultFileCopy, true);
         }
 
         private void DeleteData()
@@ -120,7 +131,8 @@ namespace QuanLyCoffeeAndTea
                     DanhMucID = Convert.ToInt32(cmbDanhMuc.SelectedValue),
                     KichCo = cmbKichCo.Text,
                     HinhAnh = ImageToByteArray(PictureBoxThucDon)
-                }); ;
+                });
+
         }
         private void resetInput()
         {
@@ -146,10 +158,11 @@ namespace QuanLyCoffeeAndTea
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Title = "Chọn ảnh";
-            openFileDialog.Filter = "Image Files(*.gif; *.jpg; *.jpeg; *.bmp; *.wmf; *.png)|*.gif; *.jpg; *.jpeg; *.bmp; *.wmf; *.png";
+            openFileDialog.Filter = "Image Files(*.jpg)|*.jpg";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                PictureBoxThucDon.ImageLocation = openFileDialog.FileName;
+                PictureBoxThucDon.Image = new Bitmap(openFileDialog.FileName);
+                selectedFile = openFileDialog.FileName;
             }
         }
 
@@ -234,7 +247,7 @@ namespace QuanLyCoffeeAndTea
                 else
                 {
                     PictureBoxThucDon.Image = null;
-                }
+                }           
                 btnCapNhat.Enabled = true;
                 btnXoa.Enabled = true;
             }

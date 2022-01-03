@@ -46,16 +46,16 @@ namespace QuanLyCoffeeAndTea
             this.txtGia = new Guna.UI2.WinForms.Guna2TextBox();
             this.cmbDanhMuc = new Guna.UI2.WinForms.Guna2ComboBox();
             this.dgvThucDon = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
-            this.PictureBoxThucDon = new System.Windows.Forms.PictureBox();
-            this.btnChonAnh = new FontAwesome.Sharp.IconButton();
-            this.btnReset = new FontAwesome.Sharp.IconButton();
             this.ThucDonID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenTD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenDanhMuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.KC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.giaTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.anh = new System.Windows.Forms.DataGridViewImageColumn();
+            this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
+            this.PictureBoxThucDon = new System.Windows.Forms.PictureBox();
+            this.btnChonAnh = new FontAwesome.Sharp.IconButton();
+            this.btnReset = new FontAwesome.Sharp.IconButton();
             this.cmbKichCo = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThucDon)).BeginInit();
@@ -342,6 +342,46 @@ namespace QuanLyCoffeeAndTea
             this.dgvThucDon.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvThucDon.DoubleClick += new System.EventHandler(this.dgvThucDon_DoubleClick);
             // 
+            // ThucDonID
+            // 
+            this.ThucDonID.DataPropertyName = "ThucDonID";
+            this.ThucDonID.FillWeight = 40F;
+            this.ThucDonID.HeaderText = "ID";
+            this.ThucDonID.Name = "ThucDonID";
+            // 
+            // TenTD
+            // 
+            this.TenTD.DataPropertyName = "TenThucDon";
+            this.TenTD.HeaderText = "Tên thực đơn";
+            this.TenTD.Name = "TenTD";
+            // 
+            // TenDanhMuc
+            // 
+            this.TenDanhMuc.DataPropertyName = "TenDM";
+            this.TenDanhMuc.HeaderText = "Danh mục";
+            this.TenDanhMuc.Name = "TenDanhMuc";
+            // 
+            // KC
+            // 
+            this.KC.DataPropertyName = "KichCo";
+            this.KC.HeaderText = "Kích cỡ";
+            this.KC.Name = "KC";
+            // 
+            // giaTien
+            // 
+            this.giaTien.DataPropertyName = "Gia";
+            this.giaTien.FillWeight = 80F;
+            this.giaTien.HeaderText = "Giá";
+            this.giaTien.Name = "giaTien";
+            // 
+            // anh
+            // 
+            this.anh.DataPropertyName = "HinhAnh";
+            this.anh.HeaderText = "Ảnh";
+            this.anh.Name = "anh";
+            this.anh.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.anh.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // txtTimKiem
             // 
             this.txtTimKiem.Animated = true;
@@ -423,46 +463,6 @@ namespace QuanLyCoffeeAndTea
             this.btnReset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // ThucDonID
-            // 
-            this.ThucDonID.DataPropertyName = "ThucDonID";
-            this.ThucDonID.FillWeight = 40F;
-            this.ThucDonID.HeaderText = "ID";
-            this.ThucDonID.Name = "ThucDonID";
-            // 
-            // TenTD
-            // 
-            this.TenTD.DataPropertyName = "TenThucDon";
-            this.TenTD.HeaderText = "Tên thực đơn";
-            this.TenTD.Name = "TenTD";
-            // 
-            // TenDanhMuc
-            // 
-            this.TenDanhMuc.DataPropertyName = "TenDM";
-            this.TenDanhMuc.HeaderText = "Danh mục";
-            this.TenDanhMuc.Name = "TenDanhMuc";
-            // 
-            // KC
-            // 
-            this.KC.DataPropertyName = "KichCo";
-            this.KC.HeaderText = "Kích cỡ";
-            this.KC.Name = "KC";
-            // 
-            // giaTien
-            // 
-            this.giaTien.DataPropertyName = "Gia";
-            this.giaTien.FillWeight = 80F;
-            this.giaTien.HeaderText = "Giá";
-            this.giaTien.Name = "giaTien";
-            // 
-            // anh
-            // 
-            this.anh.DataPropertyName = "HinhAnh";
-            this.anh.HeaderText = "Ảnh";
-            this.anh.Name = "anh";
-            this.anh.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.anh.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // cmbKichCo
             // 
