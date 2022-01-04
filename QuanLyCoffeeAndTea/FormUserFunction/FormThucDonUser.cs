@@ -20,7 +20,8 @@ namespace QuanLyCoffeeAndTea
     public partial class FormThucDonUser : Form
     {
         CoffeeAndTeaContextDB contextDB = new CoffeeAndTeaContextDB();
-        private Size sizePic = new Size(240, 240);
+        private Form activeForm;
+        private Size sizePic = new Size(100, 100);
         private string currKey = "";
         private int all = -1;
         private int nhanVienID = FormLogin.info.NhanVienID;
@@ -33,27 +34,21 @@ namespace QuanLyCoffeeAndTea
             InitializeComponent();
         }
 
-        private void btnThucDon_Click(object sender, EventArgs e)
+        private void Reset()
         {
-            if (btnThucDon.Text == "Thực đơn")
+            FormThucDonUser thucDonUser = new FormThucDonUser();
+            if (activeForm != null)
             {
-                //Thuc don
-                pnlContainer.Visible = true;
-                pnlThanhTieuDe.Visible = true;
-
-                //Thiet bi
-                btnThucDon.Text = "Thiết bị";
-            
+                activeForm.Close();
             }
-            else
-            {
-                //Thuc don
-                btnThucDon.Text = "Thực đơn";
-                btnThucDon.Enabled = false;
-                pnlContainer.Visible = false;
-                pnlThanhTieuDe.Visible = false;
-            
-            }
+            activeForm = thucDonUser;
+            thucDonUser.TopLevel = false;
+            thucDonUser.FormBorderStyle = FormBorderStyle.None;
+            thucDonUser.Dock = DockStyle.Fill;
+            pnlMain.Controls.Add(thucDonUser);
+            pnlMain.Tag = thucDonUser;
+            thucDonUser.BringToFront();
+            thucDonUser.Show();
         }
 
         public void resetData()
@@ -66,8 +61,6 @@ namespace QuanLyCoffeeAndTea
 
             pnlThanhTieuDe.Visible = false;
             pnlContainer.Visible = false;
-
-            btnThucDon.Enabled = false;
             btnThemMon.Enabled = false;
             btnThanhToan.Enabled = false;
         }
@@ -84,7 +77,7 @@ namespace QuanLyCoffeeAndTea
             if (type.Equals(this.all))
                 setLayout(query.ToList());
             else
-                setLayout(query.Where(x => x.DanhMucID == type).ToList());
+                setLayout(query.Where(x => x.DanhMucTDID == type).ToList());
         }
 
         //Thuc Don
@@ -96,12 +89,12 @@ namespace QuanLyCoffeeAndTea
             {
                 if (count == 4)
                 {
-                    height += 410;
+                    height += 210;
                     width = 10;
                     count = 0;
                 }
                 setPicture(x.ThucDonID, width, height, x.TenThucDon, (double)x.Gia, button);
-                width += 260;
+                width += 150;
                 count++;
             });
         }
@@ -134,13 +127,13 @@ namespace QuanLyCoffeeAndTea
             Guna2HtmlLabel lblTitle = new Guna2HtmlLabel();
             lblTitle.Text = label;
             lblTitle.BackColor = Color.Transparent;
-            lblTitle.Font = new Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            lblTitle.Font = new Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             lblTitle.ForeColor = Color.Black;
             int locationName = picture.Location.X + (picture.ClientSize.Width / 2 - lblTitle.Size.Width / 2);
-            lblTitle.Location = new Point(locationName, picture.Location.Y + 250);
+            lblTitle.Location = new Point(locationName, picture.Location.Y + 100);
             lblTitle.Name = "name" + id;
             lblTitle.AutoSize = true;
-            lblTitle.MaximumSize = new Size(280, 0);
+            lblTitle.MaximumSize = new Size(150, 0);
             lblTitle.TextAlignment = ContentAlignment.MiddleCenter;
             lblTitle.Cursor = Cursors.Hand;
             this.pnlContainer.Controls.Add(lblTitle);
@@ -151,13 +144,13 @@ namespace QuanLyCoffeeAndTea
             Guna2HtmlLabel lblTitle = new Guna2HtmlLabel();
             lblTitle.Text = Convert.ToString(label) + " đ";
             lblTitle.BackColor = Color.Transparent;
-            lblTitle.Font = new Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            lblTitle.Font = new Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             lblTitle.ForeColor = Color.Green;
             int locationName = picture.Location.X + (picture.ClientSize.Width / 2 - lblTitle.Size.Width / 2);
-            lblTitle.Location = new Point(locationName, picture.Location.Y + 290);
+            lblTitle.Location = new Point(locationName, picture.Location.Y + 120);
             lblTitle.Name = "gia" + id;
             lblTitle.AutoSize = true;
-            lblTitle.MaximumSize = new Size(280, 0);
+            lblTitle.MaximumSize = new Size(150, 0);
             lblTitle.TextAlignment = ContentAlignment.MiddleCenter;
             lblTitle.Cursor = Cursors.Hand;
             this.pnlContainer.Controls.Add(lblTitle);
@@ -168,13 +161,13 @@ namespace QuanLyCoffeeAndTea
             IconButton button = new IconButton();
             button.Text = buttonChon;
             button.BackColor = Color.White;
-            button.Font = new Font("Segoe UI", 20F);
+            button.Font = new Font("Segoe UI", 9F);
             button.ForeColor = Color.Green;
-            int locationName = picture.Location.X + 25;
-            button.Location = new Point(locationName, picture.Location.Y + 335);
+            int locationName = picture.Location.X + 7;
+            button.Location = new Point(locationName, picture.Location.Y + 145);
             button.Name = "chọn hàng" + id;
             button.AutoSize = true;
-            button.MaximumSize = new Size(280, 0);
+            button.MaximumSize = new Size(100, 0);
             button.TextAlign = ContentAlignment.MiddleCenter;
             button.Cursor = Cursors.Hand;
             button.Click += btnChonMon_Click;
@@ -186,7 +179,6 @@ namespace QuanLyCoffeeAndTea
         {
             int id = (int)(sender as IconButton).Tag;
             var query = contextDB.THUCDONs.FirstOrDefault(x => x.ThucDonID == id);
-            btnThucDon.Enabled = true;
             luuId = id;
             luuGia = (float)query.Gia;
             btnThemMon.Enabled = true;
@@ -201,16 +193,7 @@ namespace QuanLyCoffeeAndTea
         private void cmbDanhMuc_SelectionChangeCommitted(object sender, EventArgs e)
         {
             txtTimKiem.Text = "";
-            if (cmbDanhMuc.SelectedIndex != all)
-            {
-                loadData(cmbDanhMuc.SelectedIndex);
-               
-            }
-            else
-            {
-                loadData(all);
-                MessageBox.Show("sda");
-            }
+            loadData((int)cmbDanhMuc.SelectedValue);
         }
 
         //ThietBi
@@ -218,6 +201,8 @@ namespace QuanLyCoffeeAndTea
         {
             pnlThietBi.Controls.Clear();
             var query = contextDB.THIETBIs.ToList();
+            query.Clear();
+            query = contextDB.THIETBIs.ToList();
             int height = 10, width = 10, count = 0;
             query.ForEach(x =>
             {
@@ -228,11 +213,9 @@ namespace QuanLyCoffeeAndTea
                     count = 0;
                 }
                 setThietBi(x.ThietBiID, width, height, x.TrangThai);
-                test.Text = Convert.ToString(x.TrangThai);
                 width += 98;
                 count++;
             });
-            MessageBox.Show("fasfsaf");
         }
 
         private void setThietBi(int idd, int width, int height, bool trangThai)
@@ -244,12 +227,12 @@ namespace QuanLyCoffeeAndTea
                 button.BackColor = Color.LightGray;
             else
                 button.BackColor = Color.Green;
-            button.Font = new Font("Segoe UI", 10F);
+            button.Font = new Font("Segoe UI", 9F);
             button.ForeColor = Color.White;
             button.Location = new Point(width, height);
             button.Name = "ThietBi" + idd;
             button.AutoSize = true;
-            button.MaximumSize = new Size(100, 0);
+            button.MaximumSize = new Size(90, 0);
             button.TextAlign = ContentAlignment.MiddleCenter;
             button.Click += btn_Click;
             button.Tag = idd;
@@ -262,6 +245,7 @@ namespace QuanLyCoffeeAndTea
             int idd = (int)(sender as IconButton).Tag;
             luuTB = idd;
             pnlContainer.Visible = true;
+            pnlThanhTieuDe.Visible = true;
             lblThietBi.Text = "Thiết bị " + Convert.ToString(idd);
             ShowBill(idd, false);
         }
@@ -295,7 +279,7 @@ namespace QuanLyCoffeeAndTea
         private void btnThemMon_Click(object sender, EventArgs e)
         {
             HOADON hd = new HOADON();
-            CHITIETHOADON cthd = new CHITIETHOADON();    
+            CHITIETHOADON cthd = new CHITIETHOADON();
             int thucDonID = luuId;
             int count = (int)nmFoodCount.Value;
             float gia = luuGia;
@@ -303,7 +287,6 @@ namespace QuanLyCoffeeAndTea
                 .FirstOrDefault(x => x.ThietBiID == luuTB && x.TrangThai == false);
             var td = contextDB.CHITIETHOADONs
                 .FirstOrDefault(x => x.HOADON.ThietBiID == luuTB && x.HOADON.TrangThai == false && x.ThucDonID == thucDonID);
-           /* MessageBox.Show(Convert.ToString(td));*/
 
             if (query == null)
             {
@@ -335,8 +318,7 @@ namespace QuanLyCoffeeAndTea
                     contextDB.SaveChanges();
                     MessageBox.Show("Thêm thành công");
                     ShowBill(luuTB, false);
-                    resetData();
-                    loadThietBi();
+                    Reset();
                 }
             }
             else
@@ -358,7 +340,7 @@ namespace QuanLyCoffeeAndTea
                         contextDB.SaveChanges();
                         MessageBox.Show("Thêm thực đơn mới thành công");
                         ShowBill(luuTB, false);
-                        resetData();
+                        Reset();
                     }
                 }
                 else
@@ -381,7 +363,7 @@ namespace QuanLyCoffeeAndTea
                             });
                         MessageBox.Show("Thêm thành công");
                         ShowBill(luuTB, false);
-                        resetData();
+                        Reset();
                     }
                 }
             }
@@ -390,24 +372,24 @@ namespace QuanLyCoffeeAndTea
         private void FormThucDonUser_Load(object sender, EventArgs e)
         {
             //Gán danh mục vào comboBox
-            List<DANHMUC> listDanhMuc = contextDB.DANHMUCs.ToList();
+            List<DANHMUCTHUCDON> listDanhMuc = contextDB.DANHMUCTHUCDONs.ToList();
             cmbDanhMuc.DataSource = listDanhMuc;
-            cmbDanhMuc.ValueMember = "DanhMucID";
+            cmbDanhMuc.ValueMember = "DanhMucTDID";
             cmbDanhMuc.DisplayMember = "TenDM";
             DataTable table = new DataTable();
-            table.Columns.Add("DanhMucID", typeof(int));
+            table.Columns.Add("DanhMucTDID", typeof(int));
             table.Columns.Add("TenDM", typeof(string));
 
             listDanhMuc.ForEach(x =>
             {
                 var rowDM = table.NewRow();
-                rowDM["DanhMucID"] = x.DanhMucID;
+                rowDM["DanhMucTDID"] = x.DanhMucTDID;
                 rowDM["TenDM"] = x.TenDM;
                 table.Rows.Add(rowDM);
             });
 
             DataRow row = table.NewRow();
-            row["DanhMucID"] = all;
+            row["DanhMucTDID"] = all;
             row["TenDM"] = "Tất cả";
 
             table.Rows.InsertAt(row, 0);
@@ -424,7 +406,6 @@ namespace QuanLyCoffeeAndTea
             {
                 string format = "yyyy/MM/dd HH:mm:ss";
                 DateTime now = DateTime.Now;
-                int a = Convert.ToInt32(dgvHoaDon.SelectedRows[0].Cells[1].Value.ToString());
                 string s = now.ToString(format);
 
                 contextDB.THIETBIs
@@ -442,8 +423,16 @@ namespace QuanLyCoffeeAndTea
                         TrangThai = true
                     });
                 resetData();
-                loadThietBi();
+                Reset();
             }
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            string key = txtTimKiem.Text;
+            currKey = key;
+            loadData(all);
+            currKey = "";
         }
     }
 }

@@ -32,15 +32,14 @@ namespace QuanLyCoffeeAndTea
                 ? contextDB.THUCDONs.Where(x => x.TenThucDon.Contains(currKey))
                 : iDDM == -1 ?
                 contextDB.THUCDONs
-                : contextDB.THUCDONs.Where(x => x.DanhMucID == iDDM);
+                : contextDB.THUCDONs.Where(x => x.DanhMucTDID == iDDM);
 
             dgvThucDon.DataSource = query.OrderByDescending(x => x.ThucDonID)
                 .Select(x => new
                 {
                     x.ThucDonID,
                     x.TenThucDon,
-                    x.DANHMUC.TenDM,
-                    x.KichCo,
+                    x.DANHMUCTHUCDON.TenDM,
                     x.Gia,
                     x.HinhAnh
                 }).ToList();
@@ -50,37 +49,32 @@ namespace QuanLyCoffeeAndTea
         {
             dgvThucDon.AutoGenerateColumns = false;
             //Gán danh mục vào comboBox
-            List<DANHMUC> listDanhMuc = contextDB.DANHMUCs.ToList();
+            List<DANHMUCTHUCDON> listDanhMuc = contextDB.DANHMUCTHUCDONs.ToList();
             cmbDanhMuc.DataSource = listDanhMuc;
-            cmbDanhMuc.ValueMember = "DanhMucID";
+            cmbDanhMuc.ValueMember = "DanhMucTDID";
             cmbDanhMuc.DisplayMember = "TenDM";
             DataTable table = new DataTable();
-            table.Columns.Add("DanhMucID", typeof(int));
+            table.Columns.Add("DanhMucTDID", typeof(int));
             table.Columns.Add("TenDM", typeof(string));
 
             listDanhMuc.ForEach(x =>
             {
                 var rowDM = table.NewRow();
-                rowDM["DanhMucID"] = x.DanhMucID;
+                rowDM["DanhMucTDID"] = x.DanhMucTDID;
                 rowDM["TenDM"] = x.TenDM;
                 table.Rows.Add(rowDM);
             });
 
             DataRow row = table.NewRow();
-            row["DanhMucID"] = -1;
+            row["DanhMucTDID"] = -1;
             row["TenDM"] = "--Chọn món";
 
             table.Rows.InsertAt(row, 0);
             cmbDanhMuc.DataSource = table;
 
-            //Thêm dữ liệu vào cmbKichCo
-            cmbKichCo.Items.Add("Không có");
-            cmbKichCo.Items.Add("Ice regular size");
-            cmbKichCo.Items.Add("Big size ice");
-
             //Cho ảnh vừa datagridView
             DataGridViewImageColumn pic = new DataGridViewImageColumn();
-            pic = (DataGridViewImageColumn)dgvThucDon.Columns[5];
+            pic = (DataGridViewImageColumn)dgvThucDon.Columns[4];
             pic.ImageLayout = DataGridViewImageCellLayout.Zoom;
             loadData();
             resetInput();
@@ -90,8 +84,7 @@ namespace QuanLyCoffeeAndTea
         {
             thucDon.TenThucDon = txtTenThucDon.Text.Trim();
             thucDon.Gia = Convert.ToDouble(txtGia.Text.Trim());
-            thucDon.DanhMucID = Convert.ToInt32(cmbDanhMuc.SelectedValue);
-            thucDon.KichCo = cmbKichCo.Text;
+            thucDon.DanhMucTDID = Convert.ToInt32(cmbDanhMuc.SelectedValue);
             thucDon.HinhAnh = ImageToByteArray(PictureBoxThucDon);
             contextDB.THUCDONs.Add(thucDon);
             contextDB.SaveChanges();
@@ -109,8 +102,7 @@ namespace QuanLyCoffeeAndTea
                 .Update(i => new THUCDON { 
                     TenThucDon = txtTenThucDon.Text,
                     Gia = Convert.ToDouble(txtGia.Text),
-                    DanhMucID = Convert.ToInt32(cmbDanhMuc.SelectedValue),
-                    KichCo = cmbKichCo.Text,
+                    DanhMucTDID = Convert.ToInt32(cmbDanhMuc.SelectedValue),
                     HinhAnh = ImageToByteArray(PictureBoxThucDon)
                 });
                 string fileExt = System.IO.Path.GetExtension(selectedFile);
@@ -128,8 +120,7 @@ namespace QuanLyCoffeeAndTea
                 {
                     TenThucDon = txtTenThucDon.Text,
                     Gia = Convert.ToDouble(txtGia.Text),
-                    DanhMucID = Convert.ToInt32(cmbDanhMuc.SelectedValue),
-                    KichCo = cmbKichCo.Text,
+                    DanhMucTDID = Convert.ToInt32(cmbDanhMuc.SelectedValue),
                     HinhAnh = ImageToByteArray(PictureBoxThucDon)
                 });
 
@@ -139,7 +130,6 @@ namespace QuanLyCoffeeAndTea
             txtTenThucDon.Text = "";
             txtGia.Text = "";
             cmbDanhMuc.SelectedValue = -1;
-            cmbKichCo.SelectedIndex=0;
             txtTimKiem.Text = "";
             loadData();
             PictureBoxThucDon.Image = null;
@@ -199,6 +189,10 @@ namespace QuanLyCoffeeAndTea
             {
                 MessageBox.Show("Vui lòng nhập tên thực đơn!!!");
             }
+            else if (cmbDanhMuc.Text == "--Chọn")
+            {
+                MessageBox.Show("Vui lòng chọn danh mục!!!");
+            }
             else if (txtGia.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập giá!!!");
@@ -218,12 +212,31 @@ namespace QuanLyCoffeeAndTea
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo) != DialogResult.No)
+            if (txtTenThucDon.Text == "")
             {
-                DeleteData();
+                MessageBox.Show("Vui lòng nhập tên thực đơn!!!");
             }
-            loadData();
-            resetInput();
+            else if (cmbDanhMuc.Text == "--Chọn món")
+            {
+                MessageBox.Show("Vui lòng chọn danh mục!!!");
+            }
+            else if (txtGia.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập giá!!!");
+            }
+            else if (PictureBoxThucDon.Image == null)
+            {
+                MessageBox.Show("Vui lòng chọn hình ảnh phù hợp!!!");
+            }
+            else
+            {
+                if (MessageBox.Show("Bạn có muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo) != DialogResult.No)
+                {
+                    DeleteData();
+                }
+                loadData();
+                resetInput();
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -237,11 +250,10 @@ namespace QuanLyCoffeeAndTea
             {
                 txtTenThucDon.Text = dgvThucDon.CurrentRow.Cells[1].Value.ToString();
                 cmbDanhMuc.Text = dgvThucDon.CurrentRow.Cells[2].Value.ToString();
-                cmbKichCo.Text = dgvThucDon.CurrentRow.Cells[3].Value.ToString();
-                txtGia.Text = Convert.ToString(dgvThucDon.CurrentRow.Cells[4].Value);
-                if (dgvThucDon.CurrentRow.Cells[5].Value.ToString() != "")
+                txtGia.Text = Convert.ToString(dgvThucDon.CurrentRow.Cells[3].Value);
+                if (dgvThucDon.CurrentRow.Cells[4].Value.ToString() != "")
                 {
-                    MemoryStream memoryStream = new MemoryStream((byte[])dgvThucDon.CurrentRow.Cells[5].Value);
+                    MemoryStream memoryStream = new MemoryStream((byte[])dgvThucDon.CurrentRow.Cells[4].Value);
                     PictureBoxThucDon.Image = Image.FromStream(memoryStream);
                 }
                 else

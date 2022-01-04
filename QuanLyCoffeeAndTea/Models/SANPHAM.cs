@@ -20,16 +20,19 @@ namespace QuanLyCoffeeAndTea.Models
         [StringLength(50)]
         public string TenSanPham { get; set; }
 
+        [StringLength(30)]
+        public string QuyCach { get; set; }
+
         [Column(TypeName = "image")]
         public byte[] HinhAnh { get; set; }
 
         public double? Gia { get; set; }
 
-        public int DanhMucID { get; set; }
+        public int DanhMucSPID { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETHOADON> CHITIETHOADONs { get; set; }
 
-        public virtual DANHMUC DANHMUC { get; set; }
+        public virtual DANHMUCSANPHAM DANHMUCSANPHAM { get; set; }
     }
 }

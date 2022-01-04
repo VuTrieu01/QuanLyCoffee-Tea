@@ -46,18 +46,15 @@ namespace QuanLyCoffeeAndTea
             this.txtGia = new Guna.UI2.WinForms.Guna2TextBox();
             this.cmbDanhMuc = new Guna.UI2.WinForms.Guna2ComboBox();
             this.dgvThucDon = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.ThucDonID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenTD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenDanhMuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.KC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.giaTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.anh = new System.Windows.Forms.DataGridViewImageColumn();
             this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
             this.PictureBoxThucDon = new System.Windows.Forms.PictureBox();
             this.btnChonAnh = new FontAwesome.Sharp.IconButton();
             this.btnReset = new FontAwesome.Sharp.IconButton();
-            this.cmbKichCo = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.ThucDonID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenTD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenDanhMuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.giaTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.anh = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThucDon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxThucDon)).BeginInit();
             this.SuspendLayout();
@@ -154,7 +151,7 @@ namespace QuanLyCoffeeAndTea
             // 
             this.lblID.AutoSize = true;
             this.lblID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblID.Location = new System.Drawing.Point(31, 74);
+            this.lblID.Location = new System.Drawing.Point(31, 103);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(27, 21);
             this.lblID.TabIndex = 27;
@@ -164,7 +161,7 @@ namespace QuanLyCoffeeAndTea
             // 
             this.lblTenThucDon.AutoSize = true;
             this.lblTenThucDon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblTenThucDon.Location = new System.Drawing.Point(31, 137);
+            this.lblTenThucDon.Location = new System.Drawing.Point(31, 166);
             this.lblTenThucDon.Name = "lblTenThucDon";
             this.lblTenThucDon.Size = new System.Drawing.Size(110, 21);
             this.lblTenThucDon.TabIndex = 28;
@@ -174,7 +171,7 @@ namespace QuanLyCoffeeAndTea
             // 
             this.lblGia.AutoSize = true;
             this.lblGia.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblGia.Location = new System.Drawing.Point(31, 335);
+            this.lblGia.Location = new System.Drawing.Point(31, 301);
             this.lblGia.Name = "lblGia";
             this.lblGia.Size = new System.Drawing.Size(35, 21);
             this.lblGia.TabIndex = 29;
@@ -184,7 +181,7 @@ namespace QuanLyCoffeeAndTea
             // 
             this.lblDanhMuc.AutoSize = true;
             this.lblDanhMuc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblDanhMuc.Location = new System.Drawing.Point(31, 201);
+            this.lblDanhMuc.Location = new System.Drawing.Point(31, 230);
             this.lblDanhMuc.Name = "lblDanhMuc";
             this.lblDanhMuc.Size = new System.Drawing.Size(88, 21);
             this.lblDanhMuc.TabIndex = 30;
@@ -194,7 +191,7 @@ namespace QuanLyCoffeeAndTea
             // 
             this.lblHinhAnh.AutoSize = true;
             this.lblHinhAnh.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblHinhAnh.Location = new System.Drawing.Point(31, 398);
+            this.lblHinhAnh.Location = new System.Drawing.Point(31, 364);
             this.lblHinhAnh.Name = "lblHinhAnh";
             this.lblHinhAnh.Size = new System.Drawing.Size(80, 21);
             this.lblHinhAnh.TabIndex = 31;
@@ -219,7 +216,7 @@ namespace QuanLyCoffeeAndTea
             this.txtTenThucDon.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTenThucDon.HoverState.Parent = this.txtTenThucDon;
             this.txtTenThucDon.IconLeftOffset = new System.Drawing.Point(10, 0);
-            this.txtTenThucDon.Location = new System.Drawing.Point(179, 129);
+            this.txtTenThucDon.Location = new System.Drawing.Point(179, 158);
             this.txtTenThucDon.Name = "txtTenThucDon";
             this.txtTenThucDon.PasswordChar = '\0';
             this.txtTenThucDon.PlaceholderText = "Tên thực đơn";
@@ -247,7 +244,7 @@ namespace QuanLyCoffeeAndTea
             this.txtGia.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtGia.HoverState.Parent = this.txtGia;
             this.txtGia.IconLeftOffset = new System.Drawing.Point(10, 0);
-            this.txtGia.Location = new System.Drawing.Point(179, 327);
+            this.txtGia.Location = new System.Drawing.Point(179, 293);
             this.txtGia.Name = "txtGia";
             this.txtGia.PasswordChar = '\0';
             this.txtGia.PlaceholderText = "Giá";
@@ -272,7 +269,7 @@ namespace QuanLyCoffeeAndTea
             this.cmbDanhMuc.HoverState.Parent = this.cmbDanhMuc;
             this.cmbDanhMuc.ItemHeight = 30;
             this.cmbDanhMuc.ItemsAppearance.Parent = this.cmbDanhMuc;
-            this.cmbDanhMuc.Location = new System.Drawing.Point(179, 193);
+            this.cmbDanhMuc.Location = new System.Drawing.Point(179, 222);
             this.cmbDanhMuc.Name = "cmbDanhMuc";
             this.cmbDanhMuc.ShadowDecoration.Parent = this.cmbDanhMuc;
             this.cmbDanhMuc.Size = new System.Drawing.Size(308, 36);
@@ -300,7 +297,6 @@ namespace QuanLyCoffeeAndTea
             this.ThucDonID,
             this.TenTD,
             this.TenDanhMuc,
-            this.KC,
             this.giaTien,
             this.anh});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -342,46 +338,6 @@ namespace QuanLyCoffeeAndTea
             this.dgvThucDon.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvThucDon.DoubleClick += new System.EventHandler(this.dgvThucDon_DoubleClick);
             // 
-            // ThucDonID
-            // 
-            this.ThucDonID.DataPropertyName = "ThucDonID";
-            this.ThucDonID.FillWeight = 40F;
-            this.ThucDonID.HeaderText = "ID";
-            this.ThucDonID.Name = "ThucDonID";
-            // 
-            // TenTD
-            // 
-            this.TenTD.DataPropertyName = "TenThucDon";
-            this.TenTD.HeaderText = "Tên thực đơn";
-            this.TenTD.Name = "TenTD";
-            // 
-            // TenDanhMuc
-            // 
-            this.TenDanhMuc.DataPropertyName = "TenDM";
-            this.TenDanhMuc.HeaderText = "Danh mục";
-            this.TenDanhMuc.Name = "TenDanhMuc";
-            // 
-            // KC
-            // 
-            this.KC.DataPropertyName = "KichCo";
-            this.KC.HeaderText = "Kích cỡ";
-            this.KC.Name = "KC";
-            // 
-            // giaTien
-            // 
-            this.giaTien.DataPropertyName = "Gia";
-            this.giaTien.FillWeight = 80F;
-            this.giaTien.HeaderText = "Giá";
-            this.giaTien.Name = "giaTien";
-            // 
-            // anh
-            // 
-            this.anh.DataPropertyName = "HinhAnh";
-            this.anh.HeaderText = "Ảnh";
-            this.anh.Name = "anh";
-            this.anh.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.anh.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // txtTimKiem
             // 
             this.txtTimKiem.Animated = true;
@@ -413,9 +369,9 @@ namespace QuanLyCoffeeAndTea
             // PictureBoxThucDon
             // 
             this.PictureBoxThucDon.BackColor = System.Drawing.Color.Silver;
-            this.PictureBoxThucDon.Location = new System.Drawing.Point(179, 398);
+            this.PictureBoxThucDon.Location = new System.Drawing.Point(179, 364);
             this.PictureBoxThucDon.Name = "PictureBoxThucDon";
-            this.PictureBoxThucDon.Size = new System.Drawing.Size(308, 178);
+            this.PictureBoxThucDon.Size = new System.Drawing.Size(308, 205);
             this.PictureBoxThucDon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PictureBoxThucDon.TabIndex = 39;
             this.PictureBoxThucDon.TabStop = false;
@@ -464,36 +420,40 @@ namespace QuanLyCoffeeAndTea
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // cmbKichCo
+            // ThucDonID
             // 
-            this.cmbKichCo.BackColor = System.Drawing.Color.Transparent;
-            this.cmbKichCo.BorderColor = System.Drawing.Color.Black;
-            this.cmbKichCo.BorderRadius = 8;
-            this.cmbKichCo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbKichCo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbKichCo.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbKichCo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbKichCo.FocusedState.Parent = this.cmbKichCo;
-            this.cmbKichCo.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbKichCo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cmbKichCo.HoverState.Parent = this.cmbKichCo;
-            this.cmbKichCo.ItemHeight = 30;
-            this.cmbKichCo.ItemsAppearance.Parent = this.cmbKichCo;
-            this.cmbKichCo.Location = new System.Drawing.Point(179, 260);
-            this.cmbKichCo.Name = "cmbKichCo";
-            this.cmbKichCo.ShadowDecoration.Parent = this.cmbKichCo;
-            this.cmbKichCo.Size = new System.Drawing.Size(308, 36);
-            this.cmbKichCo.TabIndex = 43;
+            this.ThucDonID.DataPropertyName = "ThucDonID";
+            this.ThucDonID.FillWeight = 40F;
+            this.ThucDonID.HeaderText = "ID";
+            this.ThucDonID.Name = "ThucDonID";
             // 
-            // label1
+            // TenTD
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(31, 268);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 21);
-            this.label1.TabIndex = 42;
-            this.label1.Text = "Kích cỡ";
+            this.TenTD.DataPropertyName = "TenThucDon";
+            this.TenTD.FillWeight = 130F;
+            this.TenTD.HeaderText = "Tên thực đơn";
+            this.TenTD.Name = "TenTD";
+            // 
+            // TenDanhMuc
+            // 
+            this.TenDanhMuc.DataPropertyName = "TenDM";
+            this.TenDanhMuc.HeaderText = "Danh mục";
+            this.TenDanhMuc.Name = "TenDanhMuc";
+            // 
+            // giaTien
+            // 
+            this.giaTien.DataPropertyName = "Gia";
+            this.giaTien.FillWeight = 80F;
+            this.giaTien.HeaderText = "Giá";
+            this.giaTien.Name = "giaTien";
+            // 
+            // anh
+            // 
+            this.anh.DataPropertyName = "HinhAnh";
+            this.anh.HeaderText = "Ảnh";
+            this.anh.Name = "anh";
+            this.anh.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.anh.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // FormThucDonAdmin
             // 
@@ -501,8 +461,6 @@ namespace QuanLyCoffeeAndTea
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1041, 627);
-            this.Controls.Add(this.cmbKichCo);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnChonAnh);
             this.Controls.Add(this.PictureBoxThucDon);
@@ -552,10 +510,7 @@ namespace QuanLyCoffeeAndTea
         private System.Windows.Forms.DataGridViewTextBoxColumn ThucDonID;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenTD;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenDanhMuc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn KC;
         private System.Windows.Forms.DataGridViewTextBoxColumn giaTien;
         private System.Windows.Forms.DataGridViewImageColumn anh;
-        private Guna.UI2.WinForms.Guna2ComboBox cmbKichCo;
-        private System.Windows.Forms.Label label1;
     }
 }

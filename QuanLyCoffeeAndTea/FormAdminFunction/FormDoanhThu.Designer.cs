@@ -60,9 +60,9 @@ namespace QuanLyCoffeeAndTea.FormAdminFunction
             this.chart.BackColor = System.Drawing.Color.White;
             chartFont1.FontName = "Arial";
             this.chart.Legend.LabelFont = chartFont1;
-            this.chart.Location = new System.Drawing.Point(12, 189);
+            this.chart.Location = new System.Drawing.Point(12, 173);
             this.chart.Name = "chart";
-            this.chart.Size = new System.Drawing.Size(1017, 426);
+            this.chart.Size = new System.Drawing.Size(1017, 442);
             this.chart.TabIndex = 0;
             chartFont2.FontName = "Arial";
             chartFont2.Size = 12;
@@ -96,7 +96,7 @@ namespace QuanLyCoffeeAndTea.FormAdminFunction
             this.pnlMonth.Controls.Add(this.lblMoneyMonth);
             this.pnlMonth.Controls.Add(this.lblMonth);
             this.pnlMonth.FillColor = System.Drawing.Color.White;
-            this.pnlMonth.Location = new System.Drawing.Point(56, 25);
+            this.pnlMonth.Location = new System.Drawing.Point(56, 18);
             this.pnlMonth.Name = "pnlMonth";
             this.pnlMonth.Radius = 5;
             this.pnlMonth.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
@@ -136,7 +136,7 @@ namespace QuanLyCoffeeAndTea.FormAdminFunction
             this.pnlYear.Controls.Add(this.lblMoneyYear);
             this.pnlYear.Controls.Add(this.lblYear);
             this.pnlYear.FillColor = System.Drawing.Color.White;
-            this.pnlYear.Location = new System.Drawing.Point(589, 25);
+            this.pnlYear.Location = new System.Drawing.Point(589, 18);
             this.pnlYear.Name = "pnlYear";
             this.pnlYear.Radius = 5;
             this.pnlYear.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));

@@ -1,4 +1,4 @@
---Tao database QuanLyCoffeeAndTea
+﻿--Tao database QuanLyCoffeeAndTea
 Create Database QuanLyCoffeeAndTea
 go
 
@@ -26,34 +26,41 @@ Primary Key(UserID, NhanVienID),
 foreign key (NhanVienID) references NHANVIEN)
 go
 
---Tao bang DANHMUC
-Create table DANHMUC(
-DanhMucID int IDENTITY(1,1),
+--Tao bang DANHMUCTHUCDON
+Create table DANHMUCTHUCDON(
+DanhMucTDID int IDENTITY(1,1),
 TenDM nvarchar(50),
-Primary Key(DanhMucID))
+Primary Key(DanhMucTDID))
+go
+
+--Tao bang DANHMUCSANPHAM
+Create table DANHMUCSANPHAM(
+DanhMucSPID int IDENTITY(1,1),
+TenDM nvarchar(50),
+Primary Key(DanhMucSPID))
 go
 
 --Tao bang THUCDON
 Create table THUCDON(
 ThucDonID int IDENTITY(1,1),
 TenThucDon nvarchar(50),
-KichCo nvarchar(50),
 HinhAnh image,
 Gia float,
-DanhMucID int not null,
+DanhMucTDID int not null,
 Primary Key(ThucDonID),
-foreign key (DanhMucID) references DANHMUC)
+foreign key (DanhMucTDID) references DANHMUCTHUCDON)
 go
 
 --Tao bang SANPHAM
 Create table SANPHAM(
 SanPhamID int IDENTITY(1,1),
 TenSanPham nvarchar(50),
+QuyCach nvarchar(30),
 HinhAnh image,
 Gia float,
-DanhMucID int not null,
+DanhMucSPID int not null,
 Primary Key(SanPhamID),
-foreign key (DanhMucID) references DANHMUC)
+foreign key (DanhMucSPID) references DANHMUCSANPHAM)
 go
 
 --Tao bang THIETBI
@@ -90,141 +97,330 @@ foreign key (SanPhamID) references SANPHAM,
 foreign key (NhanVienID) references NHANVIEN)
 go
 
-
---Them du lieu HOADON
-INSERT INTO [dbo].[HOADON]
-           ([ThietBiID]
-           ,[NgayHD]
-           ,[TrangThai])
+--Them du lieu NHANVIEN
+INSERT INTO [dbo].[NHANVIEN]
+           ([TenNV]
+           ,[NgaySinh]
+           ,[GioiTinh]
+           ,[SDT]
+           ,[ChucVu])
      VALUES
-           (1
-           ,2022-01-02
-           ,0)
+           ('Nguyễn Ngọc Vũ Triều', 2001-03-10, 'Nam'
+           ,0125698745, 'Admin')
 GO
 
-INSERT INTO [dbo].[HOADON]
-           ([ThietBiID]
-           ,[NgayHD]
-           ,[TrangThai])
+INSERT INTO [dbo].[NHANVIEN]
+           ([TenNV]
+           ,[NgaySinh]
+           ,[GioiTinh]
+           ,[SDT]
+           ,[ChucVu])
      VALUES
-           (2
-           ,2022-01-02
-           ,0)
+           ('Nguyễn Thị A', 2001-03-10, 'Nữ'
+           ,0123658749, 'User')
 GO
 
-INSERT INTO [dbo].[HOADON]
-           ([ThietBiID]
-           ,[NgayHD]
-           ,[TrangThai])
+--Them du lieu ACCOUNT
+INSERT INTO [dbo].[ACCOUNT]
+           ([UserID]
+           ,[Password]
+           ,[Quyen]
+           ,[NhanVienID])
      VALUES
-           (3
-           ,2022-01-02
-           ,1)
+           ('admin', '1', 1, 1)
 GO
 
-INSERT INTO [dbo].[HOADON]
-           ([ThietBiID]
-           ,[NgayHD]
-           ,[TrangThai])
+INSERT INTO [dbo].[ACCOUNT]
+           ([UserID]
+           ,[Password]
+           ,[Quyen]
+           ,[NhanVienID])
      VALUES
-           (4
-           ,2022-01-02
-           ,0)
+           ('user', '1', 0, 2)
 GO
 
---Them du lieu CHITIETHOADON
-INSERT INTO [dbo].[CHITIETHOADON]
-           ([HoaDonID]
-           ,[ThucDonID]
-           ,[SanPhamID]
-           ,[NhanVienID]
-           ,[SoLuong]
-           ,[GhiChu]
-           ,[ThanhTien])
+--Them du lieu DANHMUCTHUCDON
+INSERT INTO [dbo].[DANHMUCTHUCDON]
+           ([TenDM])
      VALUES
-           (1, 28, NULL, 2, 1, NULL, 20000)
+           ('Thức uống')
 GO
 
-INSERT INTO [dbo].[CHITIETHOADON]
-           ([HoaDonID]
-           ,[ThucDonID]
-           ,[SanPhamID]
-           ,[NhanVienID]
-           ,[SoLuong]
-           ,[GhiChu]
-           ,[ThanhTien])
+INSERT INTO [dbo].[DANHMUCTHUCDON]
+           ([TenDM])
      VALUES
-           (1, 29, NULL, 2, 1, NULL, 25000)
+           ('Snacks')
 GO
 
-INSERT INTO [dbo].[CHITIETHOADON]
-           ([HoaDonID]
-           ,[ThucDonID]
-           ,[SanPhamID]
-           ,[NhanVienID]
-           ,[SoLuong]
-           ,[GhiChu]
-           ,[ThanhTien])
+INSERT INTO [dbo].[DANHMUCTHUCDON]
+           ([TenDM])
      VALUES
-           (2, 28, NULL, 2, 1, NULL, 20000)
+           ('Bakery')
 GO
 
-INSERT INTO [dbo].[CHITIETHOADON]
-           ([HoaDonID]
-           ,[ThucDonID]
-           ,[SanPhamID]
-           ,[NhanVienID]
-           ,[SoLuong]
-           ,[GhiChu]
-           ,[ThanhTien])
+--Them du lieu DANHMUCSANPHAM
+INSERT INTO [dbo].[DANHMUCSANPHAM]
+           ([TenDM])
      VALUES
-           (2, 29, NULL, 2, 1, NULL, 25000)
+           ('Trà hộp')
 GO
 
-INSERT INTO [dbo].[CHITIETHOADON]
-           ([HoaDonID]
-           ,[ThucDonID]
-           ,[SanPhamID]
-           ,[NhanVienID]
-           ,[SoLuong]
-           ,[GhiChu]
-           ,[ThanhTien])
+INSERT INTO [dbo].[DANHMUCSANPHAM]
+           ([TenDM])
      VALUES
-           (3, 28, NULL, 2, 1, NULL, 20000)
+           ('Trà túi lọc')
 GO
 
-INSERT INTO [dbo].[CHITIETHOADON]
-           ([HoaDonID]
-           ,[ThucDonID]
-           ,[SanPhamID]
-           ,[NhanVienID]
-           ,[SoLuong]
-           ,[GhiChu]
-           ,[ThanhTien])
+INSERT INTO [dbo].[DANHMUCSANPHAM]
+           ([TenDM])
      VALUES
-           (3, 29, NULL, 2, 1, NULL, 25000)
+           ('Trà túi tam giác')
 GO
 
-INSERT INTO [dbo].[CHITIETHOADON]
-           ([HoaDonID]
-           ,[ThucDonID]
-           ,[SanPhamID]
-           ,[NhanVienID]
-           ,[SoLuong]
-           ,[GhiChu]
-           ,[ThanhTien])
+INSERT INTO [dbo].[DANHMUCSANPHAM]
+           ([TenDM])
      VALUES
-           (4, 28, NULL, 2, 1, NULL, 20000)
+           ('Trà hộp giấy')
 GO
 
-INSERT INTO [dbo].[CHITIETHOADON]
-           ([HoaDonID]
-           ,[ThucDonID]
-           ,[SanPhamID]
-           ,[NhanVienID]
-           ,[SoLuong]
-           ,[GhiChu]
-           ,[ThanhTien])
+INSERT INTO [dbo].[DANHMUCSANPHAM]
+           ([TenDM])
      VALUES
-           (4, 29, NULL, 2, 1, NULL, 25000)
+           ('Lễ hộp')
+GO
+
+INSERT INTO [dbo].[DANHMUCSANPHAM]
+           ([TenDM])
+     VALUES
+           ('Trà hộp xám')
+GO
+
+INSERT INTO [dbo].[DANHMUCSANPHAM]
+           ([TenDM])
+     VALUES
+           ('Trà gói')
+GO
+
+INSERT INTO [dbo].[DANHMUCSANPHAM]
+           ([TenDM])
+     VALUES
+           ('Trà Thái Nguyên')
+GO
+
+INSERT INTO [dbo].[DANHMUCSANPHAM]
+           ([TenDM])
+     VALUES
+           ('Trà gói cao cấp')
+GO
+
+INSERT INTO [dbo].[DANHMUCSANPHAM]
+           ([TenDM])
+     VALUES
+           ('Trà vạn lý hương')
+GO
+
+INSERT INTO [dbo].[DANHMUCSANPHAM]
+           ([TenDM])
+     VALUES
+           ('Cà phê Set')
+GO
+
+INSERT INTO [dbo].[DANHMUCSANPHAM]
+           ([TenDM])
+     VALUES
+           ('Cà phê phin nhôm')
+GO
+
+INSERT INTO [dbo].[DANHMUCSANPHAM]
+           ([TenDM])
+     VALUES
+           ('Cà phê mùi')
+GO
+
+INSERT INTO [dbo].[DANHMUCSANPHAM]
+           ([TenDM])
+     VALUES
+           ('Cà phê hạt')
+GO
+
+--Them du lieu THIETBI
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
+GO
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
+GO
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
+GO
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
+GO
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
+GO
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
+GO
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
+GO
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
+GO
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
+GO
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
+GO
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
+GO
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
+GO
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
+GO
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
+GO
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
+GO
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
+GO
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
+GO
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
+GO
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
+GO
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
+GO
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
+GO
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
+GO
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
+GO
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
+GO
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
+GO
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
+GO
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
+GO
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
+GO
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
+GO
+
+INSERT INTO [dbo].[THIETBI]
+           ([TrangThai])
+     VALUES
+           (0)
 GO

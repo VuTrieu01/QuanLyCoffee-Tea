@@ -32,17 +32,15 @@ namespace QuanLyCoffeeAndTea
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainMenu));
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.PanelTitleChildForm = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblTen = new System.Windows.Forms.Label();
             this.lblTitleChildForm = new System.Windows.Forms.Label();
             this.iconCurrentChildForm = new FontAwesome.Sharp.IconPictureBox();
             this.PanelMenu = new Guna.UI2.WinForms.Guna2Panel();
             this.btnTaiKhoan = new FontAwesome.Sharp.IconButton();
             this.btnDoanhThu = new FontAwesome.Sharp.IconButton();
             this.btnNhanVien = new FontAwesome.Sharp.IconButton();
-            this.btnDanhMuc = new FontAwesome.Sharp.IconButton();
-            this.btnThietBi = new FontAwesome.Sharp.IconButton();
             this.btnSanPham = new FontAwesome.Sharp.IconButton();
             this.btnThucDon = new FontAwesome.Sharp.IconButton();
             this.btnSanPhamUser = new FontAwesome.Sharp.IconButton();
@@ -81,20 +79,6 @@ namespace QuanLyCoffeeAndTea
             this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
             this.guna2ControlBox1.TabIndex = 0;
             // 
-            // guna2ControlBox2
-            // 
-            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
-            this.guna2ControlBox2.FillColor = System.Drawing.Color.White;
-            this.guna2ControlBox2.HoverState.Parent = this.guna2ControlBox2;
-            this.guna2ControlBox2.IconColor = System.Drawing.Color.Gray;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(1003, 0);
-            this.guna2ControlBox2.Name = "guna2ControlBox2";
-            this.guna2ControlBox2.ShadowDecoration.Parent = this.guna2ControlBox2;
-            this.guna2ControlBox2.Size = new System.Drawing.Size(45, 29);
-            this.guna2ControlBox2.TabIndex = 1;
-            // 
             // guna2ControlBox3
             // 
             this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -103,7 +87,7 @@ namespace QuanLyCoffeeAndTea
             this.guna2ControlBox3.FillColor = System.Drawing.Color.White;
             this.guna2ControlBox3.HoverState.Parent = this.guna2ControlBox3;
             this.guna2ControlBox3.IconColor = System.Drawing.Color.Gray;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(958, 0);
+            this.guna2ControlBox3.Location = new System.Drawing.Point(1003, 0);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
             this.guna2ControlBox3.ShadowDecoration.Parent = this.guna2ControlBox3;
             this.guna2ControlBox3.Size = new System.Drawing.Size(45, 29);
@@ -112,17 +96,28 @@ namespace QuanLyCoffeeAndTea
             // PanelTitleChildForm
             // 
             this.PanelTitleChildForm.BackColor = System.Drawing.Color.White;
+            this.PanelTitleChildForm.Controls.Add(this.lblTen);
             this.PanelTitleChildForm.Controls.Add(this.lblTitleChildForm);
             this.PanelTitleChildForm.Controls.Add(this.iconCurrentChildForm);
             this.PanelTitleChildForm.Controls.Add(this.guna2ControlBox1);
             this.PanelTitleChildForm.Controls.Add(this.guna2ControlBox3);
-            this.PanelTitleChildForm.Controls.Add(this.guna2ControlBox2);
             this.PanelTitleChildForm.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelTitleChildForm.Location = new System.Drawing.Point(220, 0);
             this.PanelTitleChildForm.Name = "PanelTitleChildForm";
             this.PanelTitleChildForm.ShadowDecoration.Parent = this.PanelTitleChildForm;
             this.PanelTitleChildForm.Size = new System.Drawing.Size(1093, 80);
             this.PanelTitleChildForm.TabIndex = 3;
+            // 
+            // lblTen
+            // 
+            this.lblTen.AutoSize = true;
+            this.lblTen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblTen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.lblTen.Location = new System.Drawing.Point(878, 31);
+            this.lblTen.Name = "lblTen";
+            this.lblTen.Size = new System.Drawing.Size(119, 21);
+            this.lblTen.TabIndex = 42;
+            this.lblTen.Text = "Nguyễn Văn A";
             // 
             // lblTitleChildForm
             // 
@@ -155,8 +150,6 @@ namespace QuanLyCoffeeAndTea
             this.PanelMenu.Controls.Add(this.btnTaiKhoan);
             this.PanelMenu.Controls.Add(this.btnDoanhThu);
             this.PanelMenu.Controls.Add(this.btnNhanVien);
-            this.PanelMenu.Controls.Add(this.btnDanhMuc);
-            this.PanelMenu.Controls.Add(this.btnThietBi);
             this.PanelMenu.Controls.Add(this.btnSanPham);
             this.PanelMenu.Controls.Add(this.btnThucDon);
             this.PanelMenu.Controls.Add(this.btnSanPhamUser);
@@ -182,7 +175,7 @@ namespace QuanLyCoffeeAndTea
             this.btnTaiKhoan.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnTaiKhoan.IconSize = 40;
             this.btnTaiKhoan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTaiKhoan.Location = new System.Drawing.Point(0, 616);
+            this.btnTaiKhoan.Location = new System.Drawing.Point(0, 506);
             this.btnTaiKhoan.Name = "btnTaiKhoan";
             this.btnTaiKhoan.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnTaiKhoan.Size = new System.Drawing.Size(220, 55);
@@ -205,7 +198,7 @@ namespace QuanLyCoffeeAndTea
             this.btnDoanhThu.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnDoanhThu.IconSize = 39;
             this.btnDoanhThu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDoanhThu.Location = new System.Drawing.Point(0, 561);
+            this.btnDoanhThu.Location = new System.Drawing.Point(0, 451);
             this.btnDoanhThu.Name = "btnDoanhThu";
             this.btnDoanhThu.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnDoanhThu.Size = new System.Drawing.Size(220, 55);
@@ -228,7 +221,7 @@ namespace QuanLyCoffeeAndTea
             this.btnNhanVien.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnNhanVien.IconSize = 40;
             this.btnNhanVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNhanVien.Location = new System.Drawing.Point(0, 506);
+            this.btnNhanVien.Location = new System.Drawing.Point(0, 396);
             this.btnNhanVien.Name = "btnNhanVien";
             this.btnNhanVien.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnNhanVien.Size = new System.Drawing.Size(220, 55);
@@ -238,52 +231,6 @@ namespace QuanLyCoffeeAndTea
             this.btnNhanVien.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNhanVien.UseVisualStyleBackColor = true;
             this.btnNhanVien.Click += new System.EventHandler(this.btnNhanVien_Click);
-            // 
-            // btnDanhMuc
-            // 
-            this.btnDanhMuc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDanhMuc.FlatAppearance.BorderSize = 0;
-            this.btnDanhMuc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDanhMuc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnDanhMuc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnDanhMuc.IconChar = FontAwesome.Sharp.IconChar.List;
-            this.btnDanhMuc.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnDanhMuc.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnDanhMuc.IconSize = 38;
-            this.btnDanhMuc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDanhMuc.Location = new System.Drawing.Point(0, 451);
-            this.btnDanhMuc.Name = "btnDanhMuc";
-            this.btnDanhMuc.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnDanhMuc.Size = new System.Drawing.Size(220, 55);
-            this.btnDanhMuc.TabIndex = 17;
-            this.btnDanhMuc.Text = "Danh mục";
-            this.btnDanhMuc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDanhMuc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDanhMuc.UseVisualStyleBackColor = true;
-            this.btnDanhMuc.Click += new System.EventHandler(this.btnDanhMuc_Click);
-            // 
-            // btnThietBi
-            // 
-            this.btnThietBi.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnThietBi.FlatAppearance.BorderSize = 0;
-            this.btnThietBi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThietBi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnThietBi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnThietBi.IconChar = FontAwesome.Sharp.IconChar.MobileAlt;
-            this.btnThietBi.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnThietBi.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnThietBi.IconSize = 40;
-            this.btnThietBi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThietBi.Location = new System.Drawing.Point(0, 396);
-            this.btnThietBi.Name = "btnThietBi";
-            this.btnThietBi.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnThietBi.Size = new System.Drawing.Size(220, 55);
-            this.btnThietBi.TabIndex = 17;
-            this.btnThietBi.Text = "Thiết bị";
-            this.btnThietBi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThietBi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnThietBi.UseVisualStyleBackColor = true;
-            this.btnThietBi.Click += new System.EventHandler(this.btnThietBi_Click);
             // 
             // btnSanPham
             // 
@@ -515,7 +462,6 @@ namespace QuanLyCoffeeAndTea
         #endregion
 
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
         private Guna.UI2.WinForms.Guna2Panel PanelTitleChildForm;
         private Guna.UI2.WinForms.Guna2Panel PanelMenu;
@@ -538,9 +484,8 @@ namespace QuanLyCoffeeAndTea
         private FontAwesome.Sharp.IconButton btnThucDon;
         private FontAwesome.Sharp.IconButton btnDoanhThu;
         private FontAwesome.Sharp.IconButton btnNhanVien;
-        private FontAwesome.Sharp.IconButton btnDanhMuc;
-        private FontAwesome.Sharp.IconButton btnThietBi;
         private FontAwesome.Sharp.IconButton btnSanPham;
         private FontAwesome.Sharp.IconButton btnTaiKhoan;
+        private System.Windows.Forms.Label lblTen;
     }
 }

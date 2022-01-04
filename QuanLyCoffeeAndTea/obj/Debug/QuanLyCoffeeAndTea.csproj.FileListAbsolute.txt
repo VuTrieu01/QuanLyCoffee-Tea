@@ -12,9 +12,7 @@ G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanL
 G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\obj\Debug\QuanLyCoffeeAndTea.pdb
 G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\obj\Debug\QuanLyCoffeeAndTea.FormMainMenu.resources
 G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\obj\Debug\QuanLyCoffeeAndTea.FormNhanVien.resources
-G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\obj\Debug\QuanLyCoffeeAndTea.FormThietBi.resources
 G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\bin\Debug\FontAwesome.Sharp.dll
-G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\obj\Debug\QuanLyCoffeeAndTea.FormAdminFunction.FormDanhMuc.resources
 G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\obj\Debug\QuanLyCoffeeAndTea.FormAdminFunction.FormDoanhThu.resources
 G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\obj\Debug\QuanLyCoffeeAndTea.FormAdminFunction.FormSanPhamAdmin.resources
 G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\obj\Debug\QuanLyCoffeeAndTea.FormAdminFunction.FormTaiKhoan.resources
@@ -32,4 +30,3 @@ G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanL
 G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\bin\Debug\Z.EntityFramework.Plus.EF6.xml
 G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\bin\Debug\Z.Expressions.Eval.xml
 G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\bin\Debug\Guna.Charts.WinForms.dll
-G:\Nam3HK1(2021-2022)\Lập trình trực quan\TieuLuan\QuanLyCoffeeAndTea\QuanLyCoffeeAndTea\obj\Debug\QuanLyCoffeeAndTea.FormUserFunction.FormThemThucDon.resources

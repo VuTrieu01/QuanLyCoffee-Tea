@@ -14,7 +14,8 @@ namespace QuanLyCoffeeAndTea.Models
 
         public virtual DbSet<ACCOUNT> ACCOUNTs { get; set; }
         public virtual DbSet<CHITIETHOADON> CHITIETHOADONs { get; set; }
-        public virtual DbSet<DANHMUC> DANHMUCs { get; set; }
+        public virtual DbSet<DANHMUCSANPHAM> DANHMUCSANPHAMs { get; set; }
+        public virtual DbSet<DANHMUCTHUCDON> DANHMUCTHUCDONs { get; set; }
         public virtual DbSet<HOADON> HOADONs { get; set; }
         public virtual DbSet<NHANVIEN> NHANVIENs { get; set; }
         public virtual DbSet<SANPHAM> SANPHAMs { get; set; }
@@ -33,14 +34,14 @@ namespace QuanLyCoffeeAndTea.Models
                 .IsFixedLength()
                 .IsUnicode(false);
 
-            modelBuilder.Entity<DANHMUC>()
+            modelBuilder.Entity<DANHMUCSANPHAM>()
                 .HasMany(e => e.SANPHAMs)
-                .WithRequired(e => e.DANHMUC)
+                .WithRequired(e => e.DANHMUCSANPHAM)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<DANHMUC>()
+            modelBuilder.Entity<DANHMUCTHUCDON>()
                 .HasMany(e => e.THUCDONs)
-                .WithRequired(e => e.DANHMUC)
+                .WithRequired(e => e.DANHMUCTHUCDON)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<NHANVIEN>()

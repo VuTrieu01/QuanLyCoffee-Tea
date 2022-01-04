@@ -80,12 +80,6 @@
   <ItemGroup>
     <Compile Include="Chart\ConfigChart.cs" />
     <Compile Include="Chart\MixedBarAndLine.cs" />
-    <Compile Include="FormAdminFunction\FormDanhMuc.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormAdminFunction\FormDanhMuc.Designer.cs">
-      <DependentUpon>FormDanhMuc.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormAdminFunction\FormDoanhThu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,23 +116,11 @@
     <Compile Include="FormAdminFunction\FormNhanVien.Designer.cs">
       <DependentUpon>FormNhanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAdminFunction\FormThietBi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormAdminFunction\FormThietBi.Designer.cs">
-      <DependentUpon>FormThietBi.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormAdminFunction\FormThucDonAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormAdminFunction\FormThucDonAdmin.Designer.cs">
       <DependentUpon>FormThucDonAdmin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormUserFunction\FormThemThucDon.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormUserFunction\FormThemThucDon.Designer.cs">
-      <DependentUpon>FormThemThucDon.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUserFunction\FormSanPhamUser.cs">
       <SubType>Form</SubType>
@@ -155,7 +137,8 @@
     <Compile Include="Models\ACCOUNT.cs" />
     <Compile Include="Models\CHITIETHOADON.cs" />
     <Compile Include="Models\CoffeeAndTeaContextDB.cs" />
-    <Compile Include="Models\DANHMUC.cs" />
+    <Compile Include="Models\DANHMUCSANPHAM.cs" />
+    <Compile Include="Models\DANHMUCTHUCDON.cs" />
     <Compile Include="Models\HOADON.cs" />
     <Compile Include="Models\NHANVIEN.cs" />
     <Compile Include="Models\SANPHAM.cs" />
@@ -163,9 +146,6 @@
     <Compile Include="Models\THUCDON.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormAdminFunction\FormDanhMuc.resx">
-      <DependentUpon>FormDanhMuc.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormAdminFunction\FormDoanhThu.resx">
       <DependentUpon>FormDoanhThu.cs</DependentUpon>
     </EmbeddedResource>
@@ -186,12 +166,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAdminFunction\FormNhanVien.resx">
       <DependentUpon>FormNhanVien.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAdminFunction\FormThietBi.resx">
-      <DependentUpon>FormThietBi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormUserFunction\FormThemThucDon.resx">
-      <DependentUpon>FormThemThucDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUserFunction\FormSanPhamUser.resx">
       <DependentUpon>FormSanPhamUser.cs</DependentUpon>

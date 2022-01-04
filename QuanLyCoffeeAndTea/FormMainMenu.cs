@@ -18,6 +18,7 @@ namespace QuanLyCoffeeAndTea
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form activeForm;
+        private string IDAccount = FormLogin.info.NHANVIEN.TenNV;
 
         public FormMainMenu()
         {
@@ -32,8 +33,6 @@ namespace QuanLyCoffeeAndTea
             {
                 btnThucDon.Visible = false;
                 btnSanPham.Visible = false;
-                btnThietBi.Visible = false;
-                btnDanhMuc.Visible = false;
                 btnNhanVien.Visible = false;
                 btnDoanhThu.Visible = false;
                 btnTaiKhoan.Visible = false;
@@ -43,6 +42,7 @@ namespace QuanLyCoffeeAndTea
                 btnThucDonUser.Visible = false;
                 btnSanPhamUser.Visible = false;
             }
+            lblTen.Text = IDAccount;
         }
 
         private struct RGBColor
@@ -149,18 +149,6 @@ namespace QuanLyCoffeeAndTea
         {
             ActivateButton(sender, RGBColor.color5);
             openChildForm(new FormSanPhamAdmin());
-        }
-
-        private void btnThietBi_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColor.color2);
-            openChildForm(new FormThietBi());
-        }
-
-        private void btnDanhMuc_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColor.color4);
-            openChildForm(new FormDanhMuc());
         }
 
         private void btnNhanVien_Click(object sender, EventArgs e)
